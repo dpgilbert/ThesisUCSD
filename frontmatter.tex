@@ -1,0 +1,187 @@
+%
+%
+% UCSD Doctoral Dissertation Template
+% -----------------------------------
+% http://ucsd-thesis.googlecode.com
+%
+%
+
+
+%% REQUIRED FIELDS -- Replace with the values appropriate to you
+
+% No symbols, formulas, superscripts, or Greek letters are allowed
+% in your title.
+
+\title{A Search for New Physics producing Jets, Large MT2, and Disappearing Tracks in 13 TeV Proton-Proton Collision at CERN's Large Hadron Collider}
+
+\author{Dylan Gilbert}
+\degreeyear{\the\year}
+
+% Master's Degree theses will NOT be formatted properly with this file.
+\degreetitle{Doctor of Philosophy}
+
+\field{Physics}
+%\specialization{High Energy Experiment}  % If you have a specialization, add it here
+
+\chair{Professor Avraham Yagil}
+% Uncomment the next line iff you have a Co-Chair
+\cochair{Professor Frank W\"urthwein}
+
+%
+% Or, uncomment the next line iff you have two equal Co-Chairs.
+%\cochairs{Professor Chair Masterish}{Professor Chair Masterish}
+
+%  The rest of the committee members  must be alphabetized by last name.
+\othermembers{
+Professor Rommie Amaro\\
+Professor Adam Burgasser\\
+Professor George Fuller\\
+}
+\numberofmembers{5} % |chair| + |cochair| + |othermembers|
+
+
+%% START THE FRONTMATTER
+%
+\begin{frontmatter}
+
+%% TITLE PAGES
+%
+%  This command generates the title, copyright, and signature pages.
+%
+\makefrontmatter
+
+%% DEDICATION
+%
+%  You have three choices here:
+%    1. Use the ``dedication'' environment.
+%       Put in the text you want, and everything will be formated for
+%       you. You'll get a perfectly respectable dedication page.
+%
+%
+%    2. Use the ``mydedication'' environment.  If you don't like the
+%       formatting of option 1, use this environment and format things
+%       however you wish.
+%
+%    3. If you don't want a dedication, it's not required.
+%
+%
+%\begin{dedication}
+%To me.
+%\end{dedication}
+
+
+% \begin{mydedication} % You are responsible for formatting here.
+%   \vspace{1in}
+%   \begin{flushleft}
+% 	To me.
+%   \end{flushleft}
+%
+%   \vspace{2in}
+%   \begin{center}
+% 	And you.
+%   \end{center}
+%
+%   \vspace{2in}
+%   \begin{flushright}
+% 	Which equals us.
+%   \end{flushright}
+% \end{mydedication}
+
+
+
+%% EPIGRAPH
+%
+%  The same choices that applied to the dedication apply here.
+%
+%\begin{epigraph} % The style file will position the text for you.
+%  \emph{The most incomprehensible thing about the universe is that it is comprehensible}\\
+%  ---Albert Einstein
+%\end{epigraph}
+
+% \begin{myepigraph} % You position the text yourself.
+%   \vfil
+%   \begin{center}
+%     {\bf Think! It ain't illegal yet.}
+%
+% 	\emph{---George Clinton}
+%   \end{center}
+% \end{myepigraph}
+
+
+%% SETUP THE TABLE OF CONTENTS
+%
+\tableofcontents
+\listoffigures  % Comment if you don't have any figures
+\listoftables   % Comment if you don't have any tables
+
+
+
+%% ACKNOWLEDGEMENTS
+%
+%  While technically optional, you probably have someone to thank.
+%  Also, a paragraph acknowledging all coauthors and publishers (if
+%  you have any) is required in the acknowledgements page and as the
+%  last paragraph of text at the end of each respective chapter. See
+%  the OGS Formatting Manual for more information.
+%
+\begin{acknowledgements}
+Thousands of physicists, engineers, and technicians around the world have worked for decades to design, build, and operate CERN's LHC and the CMS detector.
+My work would have been impossible without their efforts.
+
+My advisors Avi Yagil and Frank W\"urthwein showed great patience and faith in me along the way, for which I am profoundly thankful.
+
+Mario Masciovecchio deserves special thanks for providing the bulk of my technical training, and working with me at all hours of the day and night, transcending timezones, for years. 
+He also developed the prototype short track definition.
+
+Slava Krutelyov, Ryan Kelley, Ian MacNeill, Bobak Hashemi, Dominick Olivito, Mark Derdzinkski, Giovanni Zevi Della Porta, and Daniel Klein also provided helpful training.
+
+Bennett Marsh, as part of and in addition to maintaining the ``classic'' portion of the analysis, wrote a lot of helpful code, offered many useful tips and ideas, and in general managed much of the tedious technical work for years.
+
+Claudio Campagnari provided useful instruction in statistical analysis, and suggested the idea that finalized the disappearing track background estimate.
+
+More generally, I must thank the rest of the Surf and Turf (SNT) group for criticism and suggestions along the way, which helped to sharpen the analysis, and the team responsible for maintaining the CMS Tier 2 computing center at UCSD, which provided most of the computing resources.
+
+Finally, the CMS SUSY group, like SNT, provided useful criticism during analysis development.
+
+\end{acknowledgements}
+
+
+%% VITA
+%
+%  A brief vita is required in a doctoral thesis. See the OGS
+%  Formatting Manual for more information.
+%
+\begin{vitapage}
+\begin{vita}
+  \item[2013] B.~A. in Physics, Williams College
+  \item[2019] Ph.~D. in Physics, University of California, San Diego
+\end{vita}
+\begin{publications}
+%  \item The CMS collaboration, Sirunyan, A.M., Tumasyan, A. et al., \emph{Search for new phenomena in final states with two opposite-charge, same-flavor leptons, jets, and missing transverse momentum in pp collisions at $\sqrt{s}=13$ TeV},  J. High Energ. Phys. (2018) 2018: 76. https://doi.org/10.1007/s13130-018-7845-2
+%% FIXME WHEN FINAL CITATION IS AVAILBLE
+\item The CMS collaboration, Sirunyan, A.M., et al., \emph{Searches for physics beyond the standard model with the $M_\mathrm{T2}$ variable in hadronic final states with and without disappearing tracks in proton-proton collisions at $\sqrt{s}=$ 13 TeV}, Eur. Phys. J C (2019)
+\end{publications}
+\end{vitapage}
+
+
+%% ABSTRACT
+%
+%  Doctoral dissertation abstracts should not exceed 350 words.
+%   The abstract may continue to a second page if necessary.
+%
+\begin{abstract}
+
+This work presents two searches for new physics characterized by pair-production of strongly interacting particles, each decaying to hadronic jets and a particle that is not detectable.
+The searches use the full 13 TeV proton-proton collision dataset produced by CERN's Large Hadron Collider and recorded by the CMS detector from 2016 to 2018, with total integrated luminosity 137 $fb^{-1}$.
+The presence of particles interacting too weakly to be detected is inferred using imbalance in the transverse momentum of the collision products, and sensitivity to pair-production is enhanced by requiring large values of the kinematic variable \mttwo in events with at least two jets.
+The first search is inclusive, binning events using the total hadronic transverse energy, the total number of jets, the number of jets reconstructed as originating from a bottom quark, and either the value of \mttwo in multijet events, or the transverse momentum of the jet in monojet events.
+The second search extends the first, by requiring the presence of a disappearing track in the event, and adds binning in the length and transverse momentum of the disappearing track.
+Both searches are sensitive to a variety of extensions to the Standard Model that include dark matter candidates.
+Of greatest interest, the results set constraints on pair production of squarks and gluinos as predicted by R-parity conserving supersymmetric extensions of the Standard Model, in which the lightest superysmmetric particle is a neutralino.
+The first search is sensitive to any decay chain termininating in Standard Model hadrons plus the neutralino, while the second specifically targets, with greatly enhanced sensitivity, decay chains containing an intermediate long-lived chargino.
+These constraints are the most stringent yet produced by any experiment.
+
+\end{abstract}
+
+
+\end{frontmatter}
