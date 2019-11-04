@@ -32,6 +32,73 @@ Its data is shared around the world and is used for this work.
   Best possible detector would be an extremely large tracker, but the expense\ldots
   Mention that tracker is not intended to shower particles, but sometimes does and refer to disappearing tracks section (probably nuclear interaction length budget plot goes here)
 
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/efficiencyVsPt.pdf}
+    \caption[Track fake rate.]{
+      The CMS track fake rate as a function of \pt, in the configuration used in 2016 and earlier. 
+      The sophisticated high purity selection aims to suppress the fake rate without badly affecting efficiency and is applied in the vast majority of CMS analyses. 
+      Taken from \cite{cmstracking}.}
+    \label{fig:trackfakerate}
+  \end{figure}  
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/MaterialBudget_RadLengths.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/MaterialBudget_InteractionLengths.pdf}
+    \caption[Tracker material budget.]{
+      The CMS tracker material budget in (left) radiation lengths (ie electromagnetic) and (right) interaction lengths (ie nuclear), in the configuration used in 2016 and earlier. 
+      While the CMS tracker is not intended to shower particles, only to measure positions as gently as possible, some amount of interaction between tracker material and collision products is inevitable.
+      Taken from \cite{cmstracking}.}
+    \label{fig:trackerbudget}
+  \end{figure}  
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/mu/efficiencyVsPt.pdf}
+    \includegraphics[width=0.3\textwidth]{figures/el/efficiencyVsPt.pdf}
+    \includegraphics[width=0.3\textwidth]{figures/pi/efficiencyVsPt.pdf}
+    \caption[Track reconstruction efficiency.]{
+      The CMS track reconstruction efficiency for (left) muons, (center) electrons, and (right) pions, split by detector region as a function of \pt, in the configuration used in 2016 and earlier. 
+      Muons are by far the cleanest objects at CMS as they are massive enough to avoid strong perturbations by tracker material, and lack nuclear interactions.
+      Electrons are lighter and so are vulnerable to tracker interactions, experiencing strong bremsstrahlung losses, while pions can undergo nuclear interactions.
+      Taken from \cite{cmstracking}.}
+    \label{fig:trackefficiency}
+  \end{figure}  
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/hitefficiency.pdf}
+    \caption[Efficiency for a genuine particle to leave an expected hit in the CMS tracker.]{
+      The efficiency for a genuine particle to an expected hit in the various subsystems of the CMS tracker, in the configuration used in 2016 and earlier. 
+      Fake tracks may have many missing expected hits, but more than one or perhaps two is extremely rare in tracks produced by genuine particles.
+      Taken from \cite{cmstracking}.}
+    \label{fig:hitefficiency}
+  \end{figure}  
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/pi/resolutionD0VsEta.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/pi/resolutionDzVsEta.pdf}
+    \caption[Impact parameter resolution in the CMS tracker.]{
+      The CMS tracker has micron-level impact parameter resolution, for both (left) the transverse plane and (right) the z direction.
+      Solid markers indicate the half-width of the 68\% confidence interval, while open markers indicate 90\% confidence.
+      Consequently, a track reconstructed with an impact parameter of more than a few hundred microns is likely a fake or from a pileup vertex.
+      Taken from \cite{cmstracking}.}
+    \label{fig:hitefficiency}
+  \end{figure}  
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/PionSurvivalProbability.pdf}
+    \caption[Pion survival in the tracker.]{
+      The probability for pions to undergo nuclear interactions in the CMS tracker by layer, in the configuration used in 2016 and earlier. 
+      In rare cases, the pion may shower in such a way that no charged daughters have high enough energy to be reconstructed, causing its track to disappear.
+      Taken from \cite{cmstracking}.}
+    \label{fig:pionsurvival}
+  \end{figure}  
+
+
   \subsection{Electromagnetic Calorimeter} \label{sec:ecal}
 
   Photons and electrons shower in ECAL cells.
@@ -112,7 +179,7 @@ Its data is shared around the world and is used for this work.
   QCD is irritating, and even electroweak physics is subject to theoretical uncertainties due partly to dependence on experimental inputs, and partly to calculating only to finite order.
   Can't run the simulation forever, and the computation is expensive.
 
-  \section{The Simulation Pileline} \label{sec:pipeline}
+  \section{The Simulation Pipeline} \label{sec:pipeline}
 
   Matrix elements (MadGraph), observed particles (pythia), how those particles interact with detector components (GEANT).
   Mention also fastsim vs fullsim (ie replacing GEANT with approximate smearing).

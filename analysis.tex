@@ -187,7 +187,7 @@ Taken from \cite{MT2_2019}.}
     Accordingly, the mismeasurement background is also referred to as the QCD multijet background.
     While the detector makes mistakes only very rarely, QCD events are so relatively common that this background is still dominant in the raw dataset, before any cleaning selections.
 
-    Estimating the QCD background is challenging because it requires highly detailed knowledge of the detector's idiosyncracies.
+    Estimating the QCD background is challenging because it requires highly detailed knowledge of the detector's idiosyncrasies.
     Rather than risk falsely discovering a signal or failing to identify one that is present due to misprediction of this background, the analysis adopts selections designed to suppress it, until the background is sufficiently minor that large relative error in its prediction is acceptable.
     
     The first and most powerful of these selections uses the \mttwo variable described in Section \ref{sec:MT2}, namely $\mttwo > 200$~GeV, where the value is chosen to achieve the desired suppression of the mismeasurement background.
@@ -349,7 +349,7 @@ Taken from \cite{MT2_2019}.}
     High \mttwo events with low \dphimin can then serve as a control region for estimating the QCD mismeasurement background, $N_{\dphimin > 0.3} = r_{\phi} N_{\dphimin < 0.3}$.
     Unfortunately, $r_{\phi}$ decreases with increasing \mttwo, so that instead the dependence must be fit to a power law at low \mttwo and extrapolated to high \mttwo, as shown in Figure~\ref{fig:rphi}.
     This procedure has obvious potential for statistical errors in the fit, systematic error in extrapolating the fit to high \mttwo, and potential non-multijet contamination of the low \dphimin control region at high \mttwo, producing total relative error at least 40\% and as large as 180\%.
-    Although the impact of these errors is controlled by suppressing the mismeasurement background as described in Section \ref{sec:MT2QCD}, it is desirable to replace this procedure with a more robust one.
+    Although the impact of these errors is controlled by suppressing the mismeasurement background as described in Section~\ref{sec:MT2QCD}, it is desirable to replace this procedure with a more robust one.
 
     \begin{figure}[h!]
       \centering
@@ -588,79 +588,296 @@ Taken from \cite{MT2_2019}.}
 
   \subsection{General Description} \label{sec:distracksdescription}
 
-  Define a disappearing track.
-  This search takes the very same events as the classic search, and adds a disappearing track requirement.
+  As searches like that discussed in the previous section approach the practical limits of their sensitivities at the LHC, interest has grown in targeting plausible signals with peculiar features that more standard searches do not exploit.
+  Among these features are those produced by relatively long-lived particles (LLPs) that do not decay promptly at the collision point, but instead travel a macroscopic distance into the detector before decaying. 
+  An overview of some possibilities in the context of supersymmetry is provided in \cite{LLPsAtLHC}.
 
-    \subsubsection{Motivation} \label{sec:distracksmotivation}
+  One of these signatures is a disappearing track, produced when a charged particle, such as \chargino, travels into the tracker, then decays to an invisible particle, such as \lsp, with a mass so nearly equal to that of the decaying charged particle that the visible products of the decay are too low energy to be reconstructed. 
+  The supersymmetric parameter space is vast and there is no way to know which if any version of supersymmetry is realized in nature, but models including LLPs that would produce disappearing tracks at CMS have been argued to be especially plausible on theoretical grounds \cite{distracks1, distracksAMSB, AMSBlifetime}.
+  The \mttwo analysis is already well-optimized for all-hadronic supersymmetry, so it is natural to search for all-hadronic decays of these models by extending it with a disappearing track search.
+  This extension begins with exactly the same set of selected events as the classic search, and then further selects the subset of events possessing a disappearing track.
 
-    Why are disappearing track searches interesting? (SUSY can make them, could have new physics right under our noses that we don't see because it looks weird, huge background suppression).
+  \subsection{Challenges} \label{sec:distrackschallenges}
 
-    \subsubsection{Challenges} \label{sec:distrackschallenges}
+  The disappearing tracks search must confront a pair of significant challenges.
 
-    Low statistics make it difficult to study background in detail, mysterious sources of background.
+  First, the background (see Section~\ref{sec:distracksbg}) entirely consists of events in which reconstruction failed, analogous to the classic search's detector mismeasurement background that was discussed in Section~\ref{sec:MT2QCD}, and is difficult to understand and estimate for many of the same reasons.
+  Simulation cannot be trusted to account for all of the detector details that lead to extremely rare reconstruction errors.
+  While the classic search can mitigate the impact of this issue with selections that make the mismeasurement background subdominant compared to the better understood neutrino backgrounds, this is not possible for the disappearing track search since no such genuine background exists.
+  Moreover, since the background is dependent on details of the detector, it is strongly affected when these details change.
+  Most prominently, the CMS pixel detector was entirely replaced between the 2016 and 2017 data taking periods \cite{phase1}, and this profoundly affected CMS track reconstruction, to the extent that the disappearing track search must treat the 2016 data entirely separately from the 2017 and 2018 data.
+  The detector's state also evolves more subtly over the data taking period, due in large part to inevitable radiation damage, and the analysis must track, study, and account for the effect of this evolution on the occurrence of disappearing tracks.
+  
+  Second, disappearing tracks are extremely rare.
+  This is of course one of the motivations for the disappearing tracks extension---they are a powerful tool to discriminate between background and likely signal events---but it also makes them difficult to study.
+  
+  Nevertheless, the disappearing tracks search produced a data-driven background estimation procedure, described in Section~\ref{sec:distracksbgest}, that was successfully validated in data, and achieved the best sensitivity to disappearing tracks in supersymmetric models to date.
+  
+  \subsection{Signal Models} \label{sec:distrackssig}
 
-    \subsubsection{Signals} \label{sec:distrackssig}
+  \begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth]{figures/chargino_lifetime.png}
+    \caption[Lifetime of \chargino as a function of mass splitting.]{
+      The rest frame lifetime of \chargino as a function of the \chargino-\lsp mass splitting. 
+      The lifetime is macroscopic for mass splittings less than 1~GeV in a broad class of supersymmetric models, a regime that is realized  when the superpartner mass scale is much larger than the Standard Model mass scale. 
+      This mass splitting is so small that the charged daughter of \chargino decay is too low energy for track reconstruction.
+      Thus, \chargino lives long enough to produce a short track in the CMS tracker, then disappears when it decays to \lsp and a lost charged daughter.
+      For mass splittings less than $M_{\pi} \approx 140$~MeV, indicated on the plot, the lifetime of \chargino is so long that it typically does not decay inside the tracker.
+      As a result, the sweet spot for the disappearing tracks search is lifetimes on the order of hundreds of MeV.
+      The discontinuity at a mass splitting of 1.4~GeV is not physical.
+      Taken from \cite{AMSBlifetime}.}
+    \label{fig:charginolifetime}
+  \end{figure*}
 
-    SMS diagrams. Mention that decay lengths can vary, and our sweet spot is decays in the track, 10-100 cm.
-    Signal tends to be isolated, high quality.
+  For the class of supersymmetric models discussed in \cite{distracksAMSB} \& \cite{AMSBlifetime}, the relative mass splitting of \chargino and \lsp is proportional to $(M_{W}/\mu)^4$, where $\mu$ is a parameter that roughly represents the energy scale of supersymmetry.
+  Non-observation of superpartners thus far at the LHC suggests that $\mu$ is probably large, on the order of TeV, implying $(M_{W}/\mu)^4 < 10^{-4}$.
+  Such a tiny mass splitting leads to a remarkably long \chargino lifetime, shown in Figure~\ref{fig:charginolifetime}.
 
-    \subsubsection{Backgrounds} \label{sec:distracksbg}
+  \begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-a}
+    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-b}
+    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-c}
+    \caption[Diagrams for (left) gluino, (center) light-flavor squark, and (right) top squark pair production, in which the gluinos and squarks can decay via a long-lived \chargino]{Diagrams for (left) gluino, (center) light-flavor squark, and (right) top squark pair production, in which the gluinos and squarks can decay via a long-lived \chargino. In this analysis, the gluino is taken to decay with branching fraction 1/3 each to the \lsp, \chargino plus, and \chargino minus. Squarks decay with branching fraction 1/2 each to the \lsp and the \chargino allowed by charge conservation. The \chargino mass is greater than the \lsp mass by hundreds of MeV, so that the charged product of the \chargino decay is too soft to be detected. Taken from \cite{MT2_2019}.}
+    \label{fig:charginodiags}
+  \end{figure*}
+  
+  Motivated by these models, the disappearing track seach considers signals that include an intermediate \chargino in the superpartner decay chain, similar to the models in Figure~\ref{fig:susyproduction} (upper right, lower left, and lower center) considered by the inclusive search.
+  The \chargino is taken to be long-lived, only hundreds of MeV more massive than \lsp.
+  Specifically, the rest frame \chargino lifetime, $\tau_0$, is varied from $c\tau_0 = 1$~cm to $c\tau_0 = 2000$~cm.
+  This range of lifetimes is selected because the CMS tracker extends from $r\approx10$~cm to $r\approx 100$~cm, and a significant fraction of \chargino decays must occur inside the tracker for the disappearing track search to have meaningful sensitivity.
+  If the decay occurs outside the tracker, the track does not disappear.
+  The full set of models considered is shown in Figure~\ref{fig:charginodiags}.
+  
+  In the model at left, gluinos are pair-produced and decay with equal probability either to \chip, \chim, or \lsp, and light-flavor quarks.
 
-    Electrons converting to photons, pions from taus, fakes, and strange baryons.
-    Describe various cleaning selections.
-    Suppress electrons by mapping and vetoing dead ECAL locations, suppress fakes with quality cuts, suppress strange baryons with HCAL energy veto.
+  In the center second, light flavor squarks are pair-produced and decay with equal probability either to the allowed charge of \chargino, or to \lsp, and a light-flavor quark.
+
+  In the model at right, top squarks are pair-produced and decay with equal probability either to the allowed charge of \chargino, or to \lsp, and a bottom quark.
+
+  The disappearing tracks produced by \chargino decays tend to be very high quality and highly isolated, with negligible energy deposits in any of the calorimeter cells along the track's extrapolated path.
+  The quality metrics in this context include the track's impact parameter with respect to the primary vertex, the size of the uncertainty in the track's assigned \pt, and the number of tracker layers in which the track failed to leave a hit when one would be expected.
+  Alongside isolation, these quality metrics allow for signal-like disappearing tracks to be distinguished from disappearing tracks that are very likely to be due to a reconstruction error.
+  This forms the basis of the background estimate described in Section~\ref{sec:distracksbgest}.
+
+  \subsection{Backgrounds} \label{sec:distracksbg}
+
+  In contrast to the classic search, there are no irreducible disappearing track backgrounds produced by the Standard Model.
+  However, there are a number of detector reconstruction issues that can lead to apparent disappearing tracks, many of which can be greatly or even entirely rejected by various cleaning selections.
+
+  Of the near-entirely reducible backgrounds, the largest before cleaning is that produced by electrons undergoing unusually strong bremsstrahlung inside the tracker, effectively converting the electron into a photon.
+  While electrons are charged and therefore produce tracks, photons are neutral and do not.
+  So, these tracks disappear, but can normally be rejected due to large photon energy deposits in the electromagnetic calorimeter cells to which the track extrapolates.
+  However, some ECAL cells do not perform well for a variety of reasons and may fail to register the photon energy deposits, and so fail to veto the disappearing track.
+  Fortunately, the majority of the ECAL performs well enough to make this background significant only for tracks extrapolating to defective cells.
+
+  Defective cells are mapped and vetoed using a tag-and-probe strategy, in which a PF electron ``tag'' identifies potential $Z\rightarrow e^+e^-$ events, and a disappearing track of opposite charge serves as the ``probe.''
+  If an event contains exactly one PF electron, the event is searched for a disappearing track of opposite charge, under the hypothesis that the event was in fact $Z\rightarrow e^+e^-$ and the second electron was not successfully reconstructed due to the conversion process described above.
+  If such a track is found and the invariant mass of the electron-disappearing track pair is consistent with the mass of the Z boson, the region of the ECAL to which the disappearing track extrapolated is deemed faulty.
+  $Z\rightarrow e^+e^-$ events are sufficiently common that the map of faulty ECAL cells can be assembled as a function of time.
+  As expected, the performance of the ECAL steadily degrades over time, so that the fraction of the ECAL that must be vetoed increases from 2016 to 2017 to 2018.
+  This veto essentially entirely rejects the electron conversion background, but at a price. 
+  It is the single largest cause of signal inefficiency, as 15-20\% of signal disappearing tracks point, by chance, into vetoed regions of the ECAL.
+
+  Another, much smaller reducible background is produced by the decay of strange baryons, including the $\Xi^{\pm}$, $\Sigma^{\pm}$, and $\Omega^{\pm}$.
+  These baryons have lifetimes in the proper range to produce tracks 10s of centimeters long, before decaying with a small mass splitting to a neutral baryon and a charged daughter that is sometimes low enough \pt to escape reconstruction.
+  While these tracks disappear from the perspective of the tracker and the ECAL, the neutral baryon is still detectable in the hadronic calorimeter via its nuclear interactions, which allows for efficient rejection of this background.
+  Additionally, strange baryons are almost always found inside jets, so the vast majority of their tracks can be vetoed on the basis of isolation.
+  Even so, a region of the HCAL with known performance issues in 2018 showed significantly increased disappearing track counts that required it to be vetoed, likely in part because of this background.
+
+  The final two backgrounds are fake tracks and mesons, mostly pions, that undergo nuclear interactions in the tracker, neither of which can be entirely rejected.
+  
+  Fake tracks are tracks comprised of hits that are not all associated to the same genuine particle.
+  The probability that track reconstruction produces a fake track is small, and can be suppressed by requiring that tracks pass a sophisticated selection called high purity, as shown in Figure~\ref{fig:trackfakerate} for the 2016 tracker \cite{cmstracking}, which improved after the pixel tracker upgrade between 2016 and 2017 \cite{cmstrackingphase1}.
+  Furthermore, the probability that more than 3 or 4 unassociated hits will be strung together into a track is negligible, limiting the fake track background to very short tracks.
+  It is also rare for unassociated hits to lie on a tight, relatively straight line; instead, they tend to be somewhat scattered.
+  Therefore, fake tracks also tend to be have low assigned \pt, since low energy track have greater curvature in the detector's magnetic field.
+  The disappearing tracks analysis considers only tracks with $\pt > 15$~GeV in part to avoid the majority of the fake track background.
+
+  While the fake track background is limited to shorter tracks, the meson background is not and so constitutes the dominant longer disappearing track background.
+  This background is generated when a meson undergoes a nuclear interaction inside the tracker, and showers in such a way that no single charged daughter is high enough energy to be reconstructed as a track, and any neutral products are sufficiently low energy or widely scattered that calorimeter deposits are insufficient to reject the track.
+  While it is merely unusual for a meson to undergo a nuclear interaction in the tracker as shown in Figure~\ref{fig:pionsurvival}, a shower leaving no detectable products is extraordinarily rare, occurring only a handful of times across three years of data taking.
+  Mesons tend not to be isolated, allowing most of this background to be distinguished from signal-like tracks, but with one major exception.
+  The $\tau$ lepton, almost always isolated when produced in the hard interaction, undergoes the decay $\tau^{\pm} \rightarrow h^{\pm}\nu$ for some meson $h^{\pm}$, almost always a $\pi^{\pm}$, with probability approximately 11.5\% \cite{pdg}.
+  In this decay, the $\pi^{\pm}$ effectively inherits the isolation of the $\tau$.
+  If this $\pi^{\pm}$ undergoes the rare shower described above, it produces an isolated disappearing track of potentially significant length, scarcely distinguishable from a signal track.
+  For this reason, observation of even a relatively long, isolated, maximally signal-like disappearing track is not itself sufficient to discover a signal. 
+  An estimate of the background's rate is necessary, to allow a comparison to the observed frequency of disappearing tracks.
 
   \subsection{Data-Driven Background Estimate} \label{sec:distracksbgest}
 
-  Emphasize that MC should not be trusted to understand a background requiring such detailed detector knowledge.
+  The two surviving disappearing track backgrounds, fake tracks and lost pions, are both produced by extremely rare failure modes of the detector.
+  A data-driven background estimate is mandatory, as replicating such pathological edge cases is beyond the capabilities of any feasible simulation.
+  This requires definition of signal-depleted control regions that can be used to measure the rate at which known physics processes produce disappearing tracks.
+  As discussed with respect to the classic search's mismeasurement background in Sections~\ref{sec:MT2QCD}~\&~\ref{sec:RandS}, events with low \mttwo are extremely background dominated.
+  Low \mttwo events compose one such control region.
+  This dependence on \mttwo to define a signal-depleted control region restricts the disappearing track search to multijet events, as no comparably powerful discriminant is known for monojet events.
+  In high \mttwo events, properties of the disappearing tracks themselves are used to divide events with signal-like disappearing tracks, called Short Tracks (ST), and background-like disappearing tracks, called Short Track Candidates (STCs), into ST signal regions and STC control regions.
+  The ST and STC selections are summarized in Table~\ref{tab:shorttrackselection}.
+  The STC selection is not maximally background-like; rather, it selects tracks that nearly pass the ST selection, but are not STs.
+  Instead, these tracks pass only a relaxed version of the ST selection.
+  This choice ensures that STCs are as closely linked to STs produced by background as possible, without including a significant amount of true signal tracks.
 
-    \subsubsection{Short Track Candidates and $f_{short}$} \label{sec:fshort}
+  The selections relaxed for STCs with respect to the ST definition can be grouped into two categories, those concerned with track quality, which are loosened by a factor of 3, and with isolation, which are loosened by a factor of 6.
+  The specific track quality selections affected are the impact parameter, both along the beam axis and in the transverse plane, and the \pt error $\sigma(\pt)$.
+  All isolation selections are loosened.  
 
-    How do tracks disappear? Who knows: ask the data, for tracks that we are confident are not signal, and remain agnostic of the precise underlying causes.
-    Crucial assumption that the ratio between signal-unlike and signal-like background is flat with MT2.
+  \begin{table}[htbp]
+    \caption[Table of ST and STC selections.]
+            {Selection requirements for STs and STCs.
+              Some requirements differ for tracks of different lengths; the length categories are described in Section~\ref{sec:distracksbinning}.
+              For the subset of medium (M) length tracks that have just four tracking layers with a measurement, the minimum required number of layers of the pixel tracking detector with a measurement is three ($\dagger$).
+              The selected tracks are required not to overlap with any identified electrons or muons, of any quality.
+              The selected tracks are as well required to not be identified as PF candidates, 
+              and not to overlap with other tracks with $\pt>15\GeV$, even if those tracks are not associated to PF candidates.
+              The table also reports the factor by which a selection is relaxed to define STCs, when applicable.
+              If no factor is reported, the requirement is not relaxed for the selection of short track candidates.
+              \label{tab:shorttrackselection}}
+    \small
+    \centering
+    \begin{tabular}{l | l | c | c}
+      \hline
+      Observable                            & Selection         & Track length          & STC factor\\
+      \hline
+      \pt [GeV]                                            & $> 15$         & All                     & \\
+      $\left|\eta\right|$                                 & $< 2.4$ and not $1.38 < \left|\eta\right| < 1.6$ & All & \\
+      %  & not $1.38 < \left|\eta\right| < 1.6$           &  & \\
+      \hline
+      $\sigma(\pt)$ / $\pt^2$ [GeV$^{-1}$]                          & $< 0.2$; $< 0.02$; $< 0.005$           & P; M; L                        & $\times 3$ \\
+      $d_{\mathrm{xy}}$ (from primary vertex) [cm]                                            & $< 0.02$ ( $< 0.01$ )           & P ( M, L )                       & $\times 3$  \\
+      $d_{\mathrm{z}}$ (from primary vertex) [cm]                                             & $< 0.05$           & All                     & $\times 3$  \\
+      \hline
+      Neutral isolation ($\Delta R < 0.05$) [GeV]                          & $< 10$         & All                     & $\times 6$  \\
+      Neutral isolation / \pt                & $< 0.1$            & All                     & $\times 6$  \\
+      Isolation ($\Delta R < 0.3$) [GeV]                             & $< 10$         & All                     & $\times 6$  \\
+      Isolation / \pt                          & $< 0.2$            & All                     & $\times 6$   \\
+      \hline
+      Number of pixel layers             & $\geq 3$ ( $\geq 2$ )           & P, M$^{\dagger}$ ( M, L )                 & \\
+      Number of tracker layers             & $\geq 3$; $<7$; $\geq7$           & P; M; L                 & \\
+      Number of lost inner hits                           & $= 0$              & All                     & \\
+      Number of lost outer hits                           & $\geq 2$           & M, L                     & \\
+      \hline
+      Is a PF candidate?                                    & No                 & All                     & \\  
+      PF lepton veto ($\Delta R < 0.1$)           & Yes   & All                     & \\
+      Lepton veto ($\Delta R < 0.2$)              & Yes   & All                     & \\
+      Track veto ($\Delta R < 0.1$)               & Yes   & All                     & \\
+      Bad calorimeter module veto                 & Yes                 & All                     &  \\
+      \Mt(track, $\vec{\MET}$) [GeV]                     & $> 100$, if $\pt < 150\GeV$ & L  &  \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+    \subsubsection{Binning} \label{sec:distracksbinning}
+
+    The background for shorter disappearing tracks is dominated by fakes, while the background for longer disappearing tracks is dominated by lost pions.
+    Additionally, signals with different LLP lifetimes produce tracks of different lengths.
+    Thus, binning the signal region by track length allows backgrounds of different origins to be segregated in different bins, and maximizes sensitivity to a variety of signal lifetimes.
+    The disappearing track search adopts 3 categories of tracks length.
+    \begin{itemize}
+      \item Pixel-only (P) tracks have hits only inside the pixel tracker. Fakes dominate the background. In 2017 and 2018 data, these tracks are further subdivided into pixel tracks with hits in 3 distinct layers (P3) and pixel tracks with hits in 4 distinct layers (P4).
+      \item Medium length (M) tracks have hits in fewer than 7 distinct layers, but have at least one hit outside the pixel detector. Lost mesons dominate the background.
+      \item Relatively long (L) tracks have hits in 7 or more distinct layers, but still disappear, having missing expected hits in at least the two outermost layers of the tracker. Lost mesons dominate the background, and the better opportunity to measure the track allows for an especially tight selection, allowing for extremely strong background suppression.
+    \end{itemize}
+    Additionally, P and M tracks are divided into tracks with $15 < \pt < 50$~GeV (``lo'') and tracks with $\pt \geq 50$~GeV (``hi'').
+    Most background falls into the low \pt bins, and signals generically populate the high \pt bins, making the high \pt bins the drivers of sensitivity to most signals.
+    This division is not adopted for L tracks, as statistics are too low to allow further division of that population of tracks.
+
+    Finally, events are binned based on the global event kinematics, using \njet and \Ht, again partly to segregate backgrounds produced by different signals and partly to enhance sensitivity to a variety of signal models.
+    The \njet bins are $2 < \njet \leq 3$ (denoted by a trailing L, targeted at squark production), and $\njet > 4$ (H, targeted at gluino production).
+    The \Ht bins are $250 < \Ht < 575$~GeV (denoted by a leading ``L''), $575 \leq \Ht < 1200$~GeV (``M''), and $\Ht \geq 1200$~GeV (``H'').
+    For events with L length tracks, the L and M \Ht bins are merged into ``LM'' to preserve statistics.
+
+    For example, the ``L HLM'' region is populated by events with L length tracks, with $\njet \geq 4$ and $\Ht \geq 1200$~GeV.
+    The ``M LM lo'' region is populated by events with M length tracks of $15 < \pt < 50$~GeV, with $2 \njet \leq 3$ and $250 < \Ht < 575$~GeV.
+
+    The STC control region binning mirrors the ST signal region, with each STC bin mapping to a corresponding ST bin.
+
+    \subsubsection{Short Track Candidates and \fshort} \label{sec:fshort}
+
+    The background estimation procedure makes use of the ratio of the counts of STs and STCs, called \fshort,
+    \begin{equation}
+      \fshort = \frac{N_{\mathrm{ST}}}{N_{\mathrm{STC}}}.
+      \label{eqn:fshort}
+    \end{equation}
+    This ratio is measured in events with $60 < \mttwo < 100$~GeV, as these events are so background-dominated that even STs are assuredly background-dominated.
+    A separate \fshort is measured for every bin, except that the measurement is inclusive in \Ht, exploiting an empirical invariance of \fshort with respect to \Ht to improve the statistical precision of the measurement.
+    The ratio is then applied at high \mttwo to estimate the number of signal-like STs produced by background, $N_{\mathrm{ST}}^{\mathrm{B}}$, using the number of STC events observed in the corresponding control region, $N_{\mathrm{STC}}^{\mathrm{Obs}}$,
+    \begin{equation}
+      N_{\mathrm{ST}}^{\mathrm{B}} = \fshort N_{\mathrm{STC}}^{\mathrm{Obs}}.
+      \label{eqn:fshortest}
+    \end{equation}
+    This estimate is correct up to statistical fluctuations, subject to the assumption that \fshort is invariant with respect to \mttwo, an assumption which is validated in data in the next subsection.
+    Even without this explicit validation, there is no reason to expect that a ratio based on track-level observables, namely the impact parameter, \pt error, and isolation, ought to be sensitive to a global event kinematic variable like \mttwo.
+    By tethering the background estimate to the observed count of STCs in data, the analysis is able to remain agnostic of the details of background disappearing track production.
 
     \subsubsection{Validation} \label{sec:distracksvalidation}
 
-    Check that background estimate is working at higher MT2, where signal still ought to be relatively rare.    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_004-a.pdf}
+      \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_004-b.pdf}
+      \caption[Validation of the disappearing tracks background estimate in (upper) 2016 and (lower) 2017--2018 data.]
+              {Validation of the disappearing tracks background estimate in (upper) 2016 and (lower) 2017--2018 data.
+                There are no discrepancies inconsistent with statistical fluctuations.
+                To be conservative, a systematic uncertainty (gray) is assessed region-by-region to account for any discrepancy greater than 1 statistical standard deviation (blue).
+                Dotted vertical lines group bins that use the same measured value of \fshort, because they differ only in \Ht.
+                Taken from \cite{MT2_2019}.}
+      \label{fig:distracksval}
+    \end{figure}  
+
+    The \fshort-based estimate of background ST production relies on the invariance of \fshort with respect to \mttwo. 
+    The \fshort ratio is measured at $60 < \mttwo < 100$~GeV, a background-dominated region, and applied in the $\mttwo > 200$~GeV signal region. 
+    In Figure~\ref{fig:distracksval}, the invariance of \fshort with respect to \mttwo is validated in the intermediate region, $100 < \mttwo < 200$~GeV, in both 2016 and 2017--2018 data, by carrying out the background estimation procedure as used for the signal region in this \mttwo sideband.
+    There are no discrepancies inconsistent with statistical fluctuations, so the estimate is considered validated.
+    To be conservative, a systematic uncertainty is assessed bin-by-bin that is no less than the statistical uncertainty, to prevent any cases of accidental closure, and as large as is necessary to cover any observed discrepancy larger than 1 standard deviation of statistical uncertainty.
 
     \subsubsection{Signal Contamination} \label{sec:distrackssigcontam}
 
-    Similar to the classic MT2 adjustment for lepton control region contamination, but two-layered.
-    First, need to account for low MT2 ST contamination.
-    Then, need to account for high MT2 STC contamination.
-    Linearize (strictly conservative) so that correction scales appropriately with signal strength.
+    As with the contamination of lepton control regions in the classic search (Section~\ref{sec:MT2sigcontam}), the disappearing tracks search must adjust its expected signal counts for contamination of its control regions.
+    In this case, there is some additional complexity because the signal can contaminate the background estimate by multiple routes.
+    Any signal tracks in the \fshort measurement region at low \mttwo can bias the measurement of \fshort, and signal STCs in the high \mttwo STC control regions can bias the application of \fshort.
+    We can separate these two factors to express the effect of contamination bias schematically as,
+    \begin{equation}
+      N_{\mathrm{ST}}^{\mathrm{Est}} + N_{\mathrm{Signal}}^{\mathrm{Bias}} = (\fshort+\Delta\fshort)(N_{\mathrm{STC}}+\Delta N_{\mathrm{STC}}) = \fshort N_{\mathrm{STC}}+\fshort\Delta N_{\mathrm{STC}} + \Delta\fshort N_{\mathrm{STC}} + \Delta\fshort\Delta N_{\mathrm{STC}}
+      \label{eqn:fullsigcontam}
+    \end{equation}
+    The bias is not linear in the signal strength, due both to the manifestly nonlinear final term, $\Delta\fshort\Delta N_{\mathrm{STC}}$, and to the hidden nonlinearity in $\Delta\fshort$, 
+    \begin{equation}
+      \fshort + \Delta\fshort = \frac{N_{\mathrm{ST}}^{\mathrm{B}}+N_{\mathrm{ST}}^{\mathrm{S}}}{N_{\mathrm{STC}}^{\mathrm{B}}+N_{\mathrm{STC}}^{\mathrm{S}}}
+    \end{equation}
+    (Recall that these quantities are measured in the $60 < \mttwo < 100$~GeV sideband for the \fshort measurement.)
+    
+    If the overprediction of background due to contamination, $N_{\mathrm{Signal}}^{\mathrm{Bias}}$, is nonlinear, then the contamination factor $C$ is a function of the signal strength $\mu$, which means that the adjusted signal count must be recomputed for every trial signal strength during the statistical analysis,
+    \begin{equation}
+      N_{\mathrm{Signal}}^{\mathrm{Adjusted}} = \mu\left(N_{\mathrm{Signal}}^{\mathrm{Raw}}-N_{\mathrm{Signal}}^{\mathrm{Bias}}\right) = \mu \left(1-\frac{N_{\mathrm{Signal}}^{\mathrm{Bias}}}{N_{\mathrm{Signal}}^{\mathrm{Raw}}}\right)N_{\mathrm{Signal}}^{\mathrm{Raw}} = \mu C(\mu) N_{\mathrm{Signal}}^{\mathrm{Raw}}.
+    \end{equation}
+    This is computationally utterly infeasible.
+    Fortunately, $N_{\mathrm{Signal}}^{\mathrm{Bias}}$ is {\it approximately} linear in $\mu$, and the approximation error is strictly conservative, so that adopting the approximation will never lead to a false discovery or false exclusion.
+    
+    First, one may approximate $\Delta \fshort$ thus,
+    \begin{equation}
+      \fshort + \Delta\fshort = \frac{N_{\mathrm{ST}}^{\mathrm{B}}+N_{\mathrm{ST}}^{\mathrm{S}}}{N_{\mathrm{STC}}^{\mathrm{B}}}.
+    \end{equation}
+    The term $N_{\mathrm{STC}}^{\mathrm{S}}$ is doubly small.
+    First, signal is rare relative to background at low \mttwo, and second, only on the order of 1\% of signal tracks fall into the STC category, so that $N_{\mathrm{STC}}^{\mathrm{S}} \ll N_{\mathrm{STC}}^{\mathrm{B}}$ in the \fshort measurement region.
+    This approximation linearizes $\Delta\fshort$, and strictly makes $\Delta\fshort$ larger by reducing the denominator, tending to overestimate the bias and, therefore, produce conservative signal counts.
+
+    Next, adjusting the applied \fshort to $\fshort^{\prime}=\fshort-\Delta\fshort$, Equation~\ref{eqn:fullsigcontam} becomes
+    \begin{equation}
+      N_{\mathrm{ST}}^{\mathrm{Est}} + N_{\mathrm{Signal}}^{\mathrm{Bias}} = \fshort^{\prime}(N_{\mathrm{STC}}+\Delta N_{\mathrm{STC}}) = \fshort^{\prime}N_{\mathrm{STC}} + \fshort^{\prime}\Delta N_{\mathrm{STC}}
+    \end{equation}
+    The second component of $\fshort^{\prime}\Delta N_{\mathrm{STC}} = \fshort\Delta N_{\mathrm{STC}} - \Delta\fshort\Delta N_{\mathrm{STC}}$ is nonlinear in the signal strength, but is again doubly small, for the same reasons as the first neglected term.
+    Neglecting it again produces a strictly larger estimate of the contamination, making the approximation conservative once again.
+
+    Ultimately, then, there are two adjustments to the expected signal counts.
+    First, the analysis subtracts the effect of signal contamination of low \mttwo STs, which bias the \fshort measurement.
+    Then, the analysis subtracts the effect of signal contamination of high \mttwo STCs, which bias the application of \fshort.
+    Both of these effects are small.
+    Any terms that consider the combined effect of low \mttwo signal and signal STCs are dropped, as signal is rare in both cases, and so doubly rare in the combined case.
+    This procedure outputs an adjustment to expected signal counts that is linear in the signal strength, and conservative, allowing for a straightforward and safe statistical interpretation.
 
   \subsection{Results} \label{sec:distracksresults}
-
-  Show final signal region results.
-  No excesses, and potentially quote most discrepant bins.
-
-  \subsection{Limits} \label{sec:distrackslimits}
-
-  Refer to description of combine statistics procedure in classic search, and show limit scans.
-
-  \subsection{Future} \label{sec:distracksfuture}
-
-  Discuss that, due to small background, disappearing track search scales almost linearly with luminosity, and search is overall heavily dominated by statistical errors.
-  May be worth pursuing in the future at 14 TeV.
-
-%  \begin{figure}[h!]
-%    \centering
-%    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-a.pdf}
-%    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-b.pdf}
-%    \caption[Distributions of \Mttwo in data and simulation for the single-lepton control region, to check \Mttwo modeling in simulation.]{Modeling of \Mttwo in simulation is checked against data with 0 (left) and 1 b-tagged jets, in events containing one lepton. Taken from \cite{MT2_2019}}
-%    \label{fig:lepmt2}
-%  \end{figure}  
-
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_004-a.pdf}
-    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_004-b.pdf}
-    \caption[Validation of the disappearing tracks background estimate in (upper) 2016 and (lower) 2017--2018 data.]{Taken from \cite{MT2_2019}}
-    \label{fig:distracksval}
-  \end{figure}  
-
 
   \begin{figure}[h!]
     \centering
@@ -670,72 +887,124 @@ Taken from \cite{MT2_2019}.}
     \label{fig:distracksresults}
   \end{figure}  
 
+  Figure~\ref{fig:distracksresults} shows the observed counts compared with the background estimate for both 2016 and 2017--2018 data.
+  It is worth noting how small the expected background is, especially in the high \pt M and L bins, in which only a few events are observed across the entire 13 TeV dataset recorded from 2016 to 2018, at an event rate on the order of 1 GHz.
+  The background-only hypothesis is consistent with the data, and so these results are interpreted as exclusion limits on the signal models shown in Figure~\ref{fig:charginodiags} with a variety of lifetimes.
+  Since counts in the M and L bins are so small, signals populating the M and L bins need only to have a few expected events to be excluded at 95\% CL by these results.
 
-\begin{figure*}[htbp]
-  \centering
-    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-a}
-    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-b}
-    \includegraphics[width=0.3\textwidth]{figures/MT2_2019/Figure_010-c}
-    \caption[Diagrams for (left) gluino, (center) light-flavor squark, and (right) top squark pair production, in which the gluinos and squarks can decay via a long-lived \chargino]{Diagrams for (left) gluino, (center) light-flavor squark, and (right) top squark pair production, in which the gluinos and squarks can decay via a long-lived \chargino. In this analysis, the gluino is taken to decay with branching fraction 1/3 each to the \lsp, \chargino plus, and \chargino minus. Squarks decay with branching fraction 1/2 each to the \lsp and the \chargino allowed by charge conservation. The \chargino mass is greater than the \lsp mass by hundreds of MeV, so that the charged product of the \chargino decay is too soft to be detected. Taken from \cite{MT2_2019}}
-    \label{fig:charginodiags}
-\end{figure*}
+  \subsection{Limits} \label{sec:distrackslimits}
 
-
-
-\begin{figure*}[htbp]
-  \centering
+  \begin{figure*}[htbp]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_017-a}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_017-b}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_017-c}
-    \caption[Exclusion limits at  95\% \CL for direct gluino pair production where the gluinos decay to light-flavor quarks, with $c\tau_{0}(\chargino) =$ (upper left) 10\cm,
-    (upper right) 50\cm, and (lower) 200\cm.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL for gluino pair production, in the disappearing tracks search.]
+            {Exclusion limits at 95\% \CL for direct gluino pair production where the gluinos decay to light-flavor quarks, with $c\tau_{0}(\chargino) =$ (upper left) 10\cm, (upper right) 50\cm, and (lower) 200\cm. Taken from \cite{MT2_2019}.}
     \label{fig:t1st_qqqq}
-\end{figure*}
-
-\begin{figure*}[htbp]
-  \centering
+  \end{figure*}
+  
+  \begin{figure*}[htbp]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_018-a}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_018-b}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_018-c}
-    \caption[Exclusion limits at 95\% \CL for light squark pair production with $c\tau_{0}(\chargino) =$ (upper left) 10\cm, (upper right) 50\cm, and (lower) 200\cm.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL for light squark pair production, in the disappearing tracks search.]
+      {Exclusion limits at 95\% \CL for light squark pair production with $c\tau_{0}(\chargino) =$ (upper left) 10\cm, (upper right) 50\cm, and (lower) 200\cm. 
+        Taken from \cite{MT2_2019}.}
     \label{fig:t2st_qq}
-\end{figure*}
-
-\begin{figure*}[htbp]
-  \centering
+  \end{figure*}
+  
+  \begin{figure*}[htbp]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_019-a}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_019-b}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_019-c}
-    \caption[Exclusion limits at 95\% \CL for top squark pair production with $c\tau_{0}(\chargino) =$ (upper left) 10\cm,
-    (upper right) 50\cm, and (lower) 200\cm.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL for top squark pair production, in the disappearing tracks search.]
+      {Exclusion limits at 95\% \CL for top squark pair production with $c\tau_{0}(\chargino) =$ (upper left) 10\cm (upper right) 50\cm, and (lower) 200\cm. Taken from \cite{MT2_2019}.}
     \label{fig:t2st_tt}
-\end{figure*}
-
-\begin{figure*}[htbp]
-  \centering
+  \end{figure*}
+  
+  \begin{figure*}[htbp]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_020-a}\\
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_020-b}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_020-c}
-    \caption[Exclusion limits at  95\% \CL on the \lsp mass, with $m_{\chargino}=m_{\lsp}+\mathcal{O}(100\MeV)$, as a function of the \chargino proper decay length,
-    for (upper) direct gluino and (lower) direct light-flavor squark pair production, for representative gluino and squark masses.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL on the \lsp mass as a function of \chargino proper decay length for gluino pair production and decay to light quarks, and light squark pair production, in the disappearing tracks search.]
+      {Exclusion limits at 95\% \CL on the \lsp mass, with $m_{\chargino}=m_{\lsp}+\mathcal{O}(100\MeV)$, as a function of the \chargino proper decay length,
+      for (upper) direct gluino and (lower) direct light-flavor squark pair production, for representative gluino and squark masses. Taken from \cite{MT2_2019}.}
     \label{fig:limits1fixedmass}
-\end{figure*}
-
-\begin{figure}[htb!]
-  \centering
+  \end{figure*}
+  
+  \begin{figure}[htb!]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_021}
-    \caption[Exclusion limits at  95\% \CL on the \lsp mass, with $m_{\chargino}=m_{\lsp}+\mathcal{O}(100\MeV)$, as a function of the \chargino proper decay length,
-    for  direct top squark pair production, as obtained for a representative top squark mass.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL on the \lsp mass as a function of \chargino proper decay length for top squark pair production, in the disappearing tracks search.]
+      {Exclusion limits at  95\% \CL on the \lsp mass, with $m_{\chargino}=m_{\lsp}+\mathcal{O}(100\MeV)$, as a function of the \chargino proper decay length,
+      for direct top squark pair production, as obtained for a representative top squark mass. Taken from \cite{MT2_2019}.}
     \label{fig:limits1fixedmass_stop}
-\end{figure}
-
-\begin{figure*}[htbp]
-  \centering
+  \end{figure}
+  
+  \begin{figure*}[htbp]
+    \centering
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_022-a}\\
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_022-b}
     \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_022-c}
-    \caption[Exclusion limits at  95\% \CL on $\sigma/\sigma_{\mathrm{theory}}$ as a function of the \chargino decay length, for
-    (upper) gluino pair production where the gluinos decay to light-flavor quarks, (lower left) light-flavor squark pair production,
-    and (lower right) top squark pair production, as obtained from the search for disappearing tracks.]{Taken from \cite{MT2_2019}}
+    \caption[Exclusion limits at 95\% \CL on gluino, light squark, and top squark pair production cross sections as a function of \chargino proper decay length, in the disappearing tracks search.]
+      {Exclusion limits at 95\% \CL on $\sigma/\sigma_{\mathrm{theory}}$ as a function of the \chargino decay length, for
+      (upper) gluino pair production where the gluinos decay to light-flavor quarks, (lower left) light-flavor squark pair production,
+      and (lower right) top squark pair production, as obtained from the search for disappearing tracks. Taken from \cite{MT2_2019}.}
     \label{fig:limits2fixedmasses}
-\end{figure*}
+  \end{figure*}
+  
+  The statistical procedure for extracting limits in the disappearing tracks search is exactly identical to that used in the classic search, described in Section~\ref{sec:MT2limits}, with the addition of the LLP lifetime as a parameter of interest.
+  Figures~\ref{fig:t1st_qqqq}-\ref{fig:t2st_tt} show limits in the mass plane for gluinos decaying to light squarks, bottom squarks, and top squarks, respectively, with the \chargino $c\tau$ set to 10~cm~(upper left), 50~cm~(upper right), and 200~cm~(bottom).
+  These limits can be compared directly to those obtained by the classic search, shown respectively in Figures~\ref{fig:t5x} (upper), \ref{fig:t2x} (upper left), and \ref{fig:stop_other} (upper right).
+  In each case, the limits improve by hundreds of GeV along each axis, due entirely to the strong background suppression of the ST requirement.
+  
+  An interesting feature of these exclusion curves is evident when comparing longer to shorter \chargino lifetimes.
+  For $c\tau = 200$~cm, the limit curve abruptly turns inward at the bottom right of each plot, where the gluino or squark is much more massive than \chargino and \lsp.
+  At $c\tau = 50$~cm, this feature is reduced in prominence, and it is inverted when $c\tau = 10$~cm.
+  This is caused by the large Lorentz boost and correspondingly extended lab frame lifetime of \chargino in these mass scenarios.
+  At longer lifetimes, \chargino often lives long enough to escape the tracker, or at least make it near enough to the edge not to leave a disappearing track, defined as a track with at least two tracker layers missing expected hits.
+  With no disappearing track, event fail the ST selection, so signal efficiencies for long \chargino lifetime are reduced in the large mass splitting scenario, and limits are weakened.
+  In contrast, shorter lifetimes benefit from the boost, as tracks more often extend into the more sensitive M and L bins.
+
+  Figures~\ref{fig:limits1fixedmass} and ~\ref{fig:limits1fixedmass_stop} show limits at 95\% CL on the \lsp mass as a function of the lifetime of \chargino, at representative fixed masses of the considered gluino or squark, with the 68\% and 95\% uncertainty bands shown in green and yellow, respectively.
+  Figure~\ref{fig:limits1fixedmass} (upper) considers gluino pair production at gluino mass 1900~GeV.
+  Figure~\ref{fig:limits1fixedmass} (lower left) considers light squark pair production in the case of a single light squark of mass 900~GeV.
+  Figure~\ref{fig:limits1fixedmass} (lower right) considers light squark pair production in the case of eight degenerate light squarks of mass 1500~GeV.
+  Figure~\ref{fig:limits1fixedmass_stop} considers top squark pair production and at top squark mass 1000~GeV.
+
+  There is a discontinuity at low \chargino lifetime in the exclusion curves of all four of these figures.
+  At this discontinuity, the limits obtained for the classic search, applicable to any \chargino of lifetime short enough not to reach the calorimeters, become superior to those obtained by the disappearing track search.
+  At these very short lifetimes, many of the charginos decay before reaching the tracker or soon after, and so do not produce tracks.
+  As the disappearing track search only selects events with a disappearing track, it suffers from large selection inefficiencies at these very short lifetimes.
+  The classic search does not require a track, and so avoids this selection inefficiency, as the cost of a larger background.
+  For short enough \chargino lifetimes, to the left of the discontinuity in each figure, this tradeoff becomes advantageous as measured by the expected sensitivity.
+
+  When the exclusion curves approach the kinematic limit, at which the mass of the decaying particle and the mass of the \chargino are nearly equal, the errors tend to become greatly compressed.
+
+  Finally, Figure~\ref{fig:limits2fixedmasses} show the exclusion limits at 95\% CL on the production cross section of gluinos and squarks as a function of \chargino lifetime for fixed gluino or squark mass and \lsp mass, for gluinos of mass 1600~GeV decaying to light quarks and \lsp of mass 1575~GeV (upper), light squarks of mass 2000~GeV and \lsp mass 1000~GeV (lower left), and top squarks of mass 1100~GeV and \lsp mass 1000~GeV (lower right).
+  The limits are strongest for intermediate \chargino lifetimes for which the fraction of \chargino decays producing disappearing tracks tens of centimeters long is maximized.
+  Sensitivity is lesser for longer and shorter lifetimes due to reduced efficiency to produce disappearing tracks, and consequently reduced signal selection efficiency.
+
+  All of these limits are the strongest produced to date by any analysis, and constitute stringent constraints on the entire class of signal models discussed in Section~\ref{sec:distrackssig}.
+
+  \subsection{Future} \label{sec:distracksfuture}
+  
+  The subject of LLPs in supersymmetric extensions of the Standard Model, and the potential sensitivity gains that LLPs can provide for new physics searches in general, will continue to inspire interest for the foreseeable future of the LHC's physics program.
+  The \mttwo disappearing track extension is no exception.
+  Furthermore, unlike the classic search, which has non-negligible backgrounds that will grow larger with increased integrated luminosity luminosity, the most sensitive bins of the disappearing tracks search are effectively entirely background-depleted.
+  In fact, while the background should not meaningfully increase in the foreseeable future, the statistical precision of the background estimate {\it will} improve with the addition of more data.
+  As a result, the sensitivity of the disappearing track search projects to improve roughly linearly with increasing integrated luminosity rather than as its square root.
+  With continuing interest and better scaling of the sensitivity, this search is a potentially worthwhile candidate for continued updates as the CMS dataset expands.
+
+%  \begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-a.pdf}
+%    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-b.pdf}
+%    \caption[Distributions of \Mttwo in data and simulation for the single-lepton control region, to check \Mttwo modeling in simulation.]{Modeling of \Mttwo in simulation is checked against data with 0 (left) and 1 b-tagged jets, in events containing one lepton. Taken from \cite{MT2_2019}}
+%    \label{fig:lepmt2}
+%  \end{figure}  
+
