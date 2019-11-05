@@ -173,6 +173,44 @@ Taken from \cite{MT2_2019}.}
     \label{fig:LQdiags}
   \end{figure}  
 
+  \begin{table}[htb]
+    \topcaption[Table of systematic uncertainties affecting expected signal yields.]{
+      Systematic uncertainties in the signal yields for the simplified models of BSM physics.
+      The large statistical uncertainties in the simulated signal sample come from a small number of bins with low acceptance,
+      which are typically not among the most sensitive bins contributing to a given model benchmark point.
+      Taken from \cite{MT2_2019}.
+      \label{tab:sig_systs}}
+    \centering
+    \begin{tabular}{lc}
+      \hline
+      Source & Range [\%] \\
+      \hline
+      Integrated luminosity                     & 2.3--2.5     \\
+      Limited size of MC samples                & 1--100  \\
+      $b$-tagging efficiency, heavy flavors       & 0--40   \\
+      $b$-tagging efficiency, light flavors       & 0--20   \\
+      Lepton efficiency                         & 0--20   \\
+      Jet energy scale                          & 5       \\
+      Fast simulation \met modeling            & 0--5     \\
+      ISR modeling                              & 0--30   \\
+      $\mu_{\mathrm{R}}$ and $\mu_{\mathrm{F}}$  & 5       \\
+      \hline
+    \end{tabular}
+  \end{table}
+  By necessity and unlike backgrounds, the expected event yields for signal models are obtained directly from simulation.
+  For this reason, while most uncertainties are shared with background, signal estimates are exposed to a few extra uncertainties, and some of the shared uncertainties increase in magnitude.
+
+  First, while background is normalized to control region counts and so automatically scaled to the correct integrated luminosity, signal counts must be scaled by an independent measurement of the integrated luminosity.
+  This measurement is only precise to within a few per cent, leading to a few per cent uncertainty on the expected event count.
+
+  Second, additional jets obtained from ISR must be modeled in simulation for signal, while for background, the control regions provide a precise measurement of the relevant ISR jet production.
+  In bins with many jets, where ISR jet production rates are less well-known and simultaneously more important, this uncertainty is as large as 30\%.
+
+  Finally, signal models must be simulated in the fast-simulation framework discussed in Section~\ref{sec:pipeline} to make the enormous array of signal scenarios considered computationally feasible.
+  A systematic is assessed to cover potential errors made by this approximation.
+
+  The remaining uncertainties are described in the next section, in the context of background estimates.
+
   \subsection{Backgrounds} \label{sec:MT2bg}
 
   All of the targeted signals are characterized by all-hadronic events with large missing energy, but observing such an event does not constitute discovery due to the existence of backgrounds that can produce the same basic signature.
@@ -233,22 +271,64 @@ Taken from \cite{MT2_2019}.}
 
     A first attempt might be to simulate events containing W bosons, scale the simulation to the desired luminosity, and count the events in which the lepton is not reconstructed.
     This procedure would have reasonable accuracy, but producing accurate simulations is not trival, and the result would be subject to an array of systematic errors.
-    Schematically, if $N_{LL}^{Data}$ is the actual number of lost lepton events in data and $N_{LL}^{MC}$ is the number predicted by Monte Carlo simulation, the simulation will mispredict by some factor $\epsilon$ such that $N_{LL}^{Data} = \epsilon N_{LL}^{MC}$.
+    Schematically, if $N_{LL}^{\mathrm{Data}}$ is the actual number of lost lepton events in data and $N_{LL}^{\mathrm{MC}}$ is the number predicted by Monte Carlo simulation, the simulation will mispredict by some factor $\epsilon$ such that $N_{LL}^{\mathrm{Data}} = \epsilon N_{LL}^{\mathrm{MC}}$.
 
     It is possible to do better than $\epsilon$ with data driven techniques.
-    In addition to the lost lepton events, one can also ask the simulation for its prediction of the number of W events in which the lepton is not lost, single lepton events, $N_{SL}^{MC}$, where we restrict the lepton to electrons and muons since $\tau$ reconstruction is much more difficult.
+    In addition to the lost lepton events, one can also ask the simulation for its prediction of the number of W events in which the lepton is not lost, single lepton events, $N_{SL}^{\mathrm{MC}}$, where we restrict the lepton to electrons and muons since $\tau$ reconstruction is much more difficult.
     Every part of this simulation is exactly identical to the lost lepton simulation, subject to almost the same errors, with the major exception being the predicted lepton reconstruction efficiency.
-    Call this new error factor $\delta$ so that $N_{SL}^{Data}=\delta N_{SL}^{MC}$.
+    Call this new error factor $\delta$ so that $N_{SL}^{\mathrm{Data}}=\delta N_{SL}^{\mathrm{MC}}$.
     Then $\epsilon/\delta = \gamma$ is the portion of the misprediction due to the simulation's imperfect knowledge of the lepton reconstruction efficiency and a few other more minor uncorrelated effects, a small portion of the total.
-    The ratio $R_{MC}^{0\ell/1\ell} = N_{LL}^{MC} / N_{SL}^{MC}$ is subject only to this relatively small error $\gamma$, since the fully correlated errors cancel.
-    The prediction of $N_{LL}^{Data}$ follows directly,
+    The ratio $R_{\mathrm{MC}}^{0\ell/1\ell} = N_{LL}^{\mathrm{MC}} / N_{SL}^{\mathrm{MC}}$ is subject only to this relatively small error $\gamma$, since the fully correlated errors cancel.
+    The prediction of $N_{LL}^{\mathrm{Data}}$ follows directly,
     \begin{equation}
-      N_{LL}^{Data;Est} = R_{MC}^{0\ell/1\ell} N_{SL}^{Data}.
+      N_{LL}^{\mathrm{Data};Est} = R_{\mathrm{MC}}^{0\ell/1\ell} N_{SL}^{\mathrm{Data}}.
     \end{equation}
-    The input $N_{SL}^{Data}$ is measured in a control region populated by single lepton events observed in data, in a kinematic region identical to the corresponding lost lepton signal region.
+    The input $N_{SL}^{\mathrm{Data}}$ is measured in a control region populated by single lepton events observed in data, in a kinematic region identical to the corresponding lost lepton signal region.
     The remaining systematic uncertainty is only about 15\% in most signal regions.
 
-    While the lost lepton background tends to be subdominant relative to the Invisible Z background discussed in the next section, it is the largest background in certain high \njet, high \nb, high \Ht bins as Z events do not populate these bins efficiently, while $t\bar{t}$ pair-production events do, and all $t\bar{t}$ events contain two W bosons that may decay leptonically.
+    \begin{table}[tbhp]
+      \centering
+      \topcaption[Table of uncertainties affecting the lost lepton background estimate.]{\label{tab:llepsyst}
+        Summary of systematic uncertainties in the lost-lepton background prediction, together with their typical size ranges across the search bins. 
+        ($\dagger$) In every topological region, bins along the \mttwo axis with insufficient statistics to allow a fully data-driven estimate are assigned an \mttwo shape from simulation, normalized based on the integral of the affected bins in the data control region.
+        Taken from \cite{MT2_2019}.
+      }
+      \begin{tabular}{ l  c }
+        \hline
+        Source & Range [\%] \\
+        \hline
+        Limited size of data control samples & 5--100\\
+        Limited size of MC samples & 0--50\\
+        $e/\mu$ efficiency & 0--10\\
+        $\tau$ efficiency & 0--3\\
+        $b$-tagging efficiency & 0--3\\
+        Jet energy scale & 0--5\\
+        $\Mt\left(\text{lepton},~\vec{\met}\right)$ selection efficiency & 0--3\\
+        \mttwo shape uncertainty$^{\dagger}$ & 0--40\\
+        Renormalization and factorization scale variation & 0--5\\
+        $t\bar{t}b\bar{b}/t\bar{t}jj$ weight & 0--25\\
+        \hline
+      \end{tabular}
+    \end{table}
+    Other uncertainties affecting the lost lepton background prediction are summarized in Table~\ref{tab:llepsyst}, together with their typical size ranges across the search bins.
+    The first two uncertainties due to limited data control region and Monte Carlo simulation sample sizes are purely statistical.
+    The remainder are systematic.
+
+    The efficiency to reconstruct leptons is, as mentioned, the primary uncertainty of the simulation with respect to data, that does not drop out after taking a ratio of lost- and single-lepton events.
+
+    The impact of the $\tau$ reconstruction efficiency is smaller, as it is not used in the single lepton control region, however uncertainty on the rate at which the $\tau$ veto fails to reject events contributes to uncertainty in the expected yield.
+
+    The expected transfer factor from the single lepton to lost lepton regions varies slightly with respect to the binning variables, \Ht, \njet, \nb, and \mttwo, and so is recalculated in simulation for each bin.
+    Since the transfer factor varies, they may be incorrectly estimated if simulation does not accurately reproduce the $b$-tagging efficiency and jet energy assignments in real data.
+
+    To restrict the single lepton control region to leptons consistent with originating from a leptonic W decay, the lepton and \met system is required to satisfy $\Mt\left(\text{lepton},~\vec{\met}\right) < 100$~GeV, since an on-shell W can never decay to a lepton-neutrino system more massive than this, and $\Mt \leq M$.
+
+    The renormalization and factorization scales are generic issues with theoretical calculations, discussed in Section~\ref{sec:limitations}.
+
+    Finally, the $t\bar{t}b\bar{b}/t\bar{t}jj$ weight is a special systematic assessed to cover an ad hoc procedure that corrects a particularly severe data-simulation discrepancy affecting the relative rates of $b\bar{b}$ ISR and light flavor ISR in simulated $t\bar{t}$ events.
+    This simulation error is not significant for the majority of CMS analyses, however it is important for analyses like this search that include bins with large \nb, for which $t\bar{t}b\bar{b}$ is the only meaningful background.
+
+    In closing, it should be noted that while the lost lepton background tends to be subdominant relative to the Invisible Z background discussed in the next section, it is the largest background in certain high \njet, high \nb, high \Ht bins since Z events do not populate these bins efficiently, while $t\bar{t}$ pair-production events do, and all $t\bar{t}$ events contain two W bosons that may decay leptonically.
 
     \subsubsection{Invisible Z} \label{sec:MT2zinv}
 
@@ -284,6 +364,30 @@ Taken from \cite{MT2_2019}.}
       N_{\nu\nu}^{Data;Est} = R_{MC}^{\nu\nu/\ell^+\ell^-}(N_{Data}^{\ell^+\ell^-}-R^{SF/OF}N_{DF}^{Data})
     \end{equation}
     Being irreducible, the \znunu plus jets background is dominant in the vast majority of bins.
+
+    \begin{table}[tbhp]
+      \centering
+      \topcaption[Table summarizing the systematic uncertainties affecting the \znunu background prediction.]{\label{tab:invzsyst}
+        Summary of systematic uncertainties in the \znunu background prediction,
+        together with their typical size ranges across the search bins.
+        ($\dagger$) In every topological region, bins along the \mttwo axis with insufficient statistics to allow a fully data-driven estimate are assigned an \mttwo shape from simulation, normalized based on the integral of the affected bins in the data control region.
+        Take from \cite{MT2_2019}.
+      }
+      \begin{tabular}{ l  c }
+        \hline
+        Source & Range [\%] \\
+        \hline
+        Limited size of data control samples & 5--100\\
+        Limited size of MC samples & 0--50\\
+        Lepton efficiency & 0--5\\
+        Jet energy scale & 0--5\\
+        Uncertainty in $R^{\mathrm{SF}/\mathrm{DF}}$ & 0--5\\
+        \mttwo shape uncertainty$^{\dagger}$ & 0--40\\
+        \hline
+      \end{tabular}
+    \end{table}
+    The uncertainties in the \znunu background prediction are summarized in Table~\ref{tab:invzsyst} together with their typical size ranges across the search bins.
+    Only the uncertainty in $R^{\mathrm{SF}/\mathrm{DF}}$ is unique to \znunu, while the others are shared with the lost-lepton estimate.
 
   \subsection{Baseline Selection} \label{sec:MT2baseline}
 
@@ -368,7 +472,7 @@ Taken from \cite{MT2_2019}.}
     Rebalance and Smear (R\&S) achieves the desired improvement.
     R\&S begins with a sample of multijet events from data with \Ht on the order of hundreds of GeV and at least two jets with $\pt > 10$~GeV.
     This is as nearly unbiased a sample of QCD events as is allowed by available triggers.
-    These events will generically have some small but nonzero \met due to imperfect measurement of the jet energies, dictated by the detector's resolution, and potentially a very small contribution from genuine neutrinos produced in the hadron decay chains inside the jets.
+    These events will generically have some small but nonzero \met due to imperfect measurement of the jet energies, dictated by the detector's resolution, jets from pileup, very low energy objects in the event, and potentially a very small contribution from genuine neutrinos produced in the hadron decay chains inside the jets.
     The \pt values assigned to the jets are then adjusted, finding the most likely assignment of \pt values subject to the hypothesis that the true \met is very nearly zero, and that jet mismeasurements of a given size occur with probability given by jet response templates.
     As shown in Figure~\ref{fig:jet_resolution}, large mismeasurements are rare.
     Thus, the Rebalancing step tries to get the \pt as close to zero as feasible without making more improbable adjustments to the jets than necessary.
@@ -396,7 +500,32 @@ Taken from \cite{MT2_2019}.}
     This allows for a validation in data of the R\&S procedure, shown in Figure~\ref{fig:RandSval}.
     The total background estimate is consistent with data in the $\dphimin < 0.3$ control region across all of the analysis bins, with the R\&S estimated counts contributing most of the predicted events.
 
+    \begin{table}[tbhp]
+      \centering
+      \topcaption[Systematic uncertainties affecting the Rebalance \& Smear jet mismeasurement background estimate.]
+                 {\label{tab:qcdsyst}
+                   Summary of systematic uncertainties in the multijet background prediction,
+                   together with their typical size ranges across the search bins.
+                   ($\dagger$) The parameter $\sigma_\text{T}^{\text{soft}}$ is the width of the assumed underlying irreducible \met distribution for a multijet event, used as an input to the Rebalancing step, and so-called because such \met is dominated by low energy objects.
+                   The final output is largely independent of the precise choice for this parameter and the shape of the underlying distribution, but a systematic is assessed to cover any observed variations.
+                   Taken from \cite{MT2_2019}.
+      }
+      \begin{tabular}{ l  c }
+        \hline
+        Source & Range [\%] \\
+        \hline
+        Jet energy resolution & 10--20\\
+        Tails of jet response in templates & 17--25\\
+        $\sigma_\text{T}^{\text{soft}}$ modeling$^{\dagger}$ & 1--25\\
+        \njet modeling & 1--19\\
+        \nb modeling & 1--16\\
+        \hline
+      \end{tabular}
+    \end{table}
+
     R\&S achieves a significant improvement over the old $r_{\phi}$ based system, effectively eliminating statistical error, and improving the worst case relative error on the mismeasurement estimate from 180\% to less than 50\%.
+    Systematic uncertainties are summarized in Table~\ref{tab:qcdsyst} together with their typical size ranges across the search bins.
+    The sources of these uncertainties are described either in the text above, or are shared with the uncertainties affecting the genuine neutrino backgrounds.
 
     \subsubsection{Expanded Binning} \label{sec:newbinning}
 
@@ -715,9 +844,11 @@ Taken from \cite{MT2_2019}.}
   This dependence on \mttwo to define a signal-depleted control region restricts the disappearing track search to multijet events, as no comparably powerful discriminant is known for monojet events.
   In high \mttwo events, properties of the disappearing tracks themselves are used to divide events with signal-like disappearing tracks, called Short Tracks (ST), and background-like disappearing tracks, called Short Track Candidates (STCs), into ST signal regions and STC control regions.
   The ST and STC selections are summarized in Table~\ref{tab:shorttrackselection}.
+  Signal disappearing tracks pass this selection in simulation with efficiency between 50\% and 65\%, while only around 1 in 1000 to 1 in 10,000 background events passing the baseline selection of the \mttwo analysis possess a track passing the ST selection.
   The STC selection is not maximally background-like; rather, it selects tracks that nearly pass the ST selection, but are not STs.
   Instead, these tracks pass only a relaxed version of the ST selection.
   This choice ensures that STCs are as closely linked to STs produced by background as possible, without including a significant amount of true signal tracks.
+  Only a few per cent of signal tracks are selected as STCs, but they are a few times more common in background events than STs.
 
   The selections relaxed for STCs with respect to the ST definition can be grouped into two categories, those concerned with track quality, which are loosened by a factor of 3, and with isolation, which are loosened by a factor of 6.
   The specific track quality selections affected are the impact parameter, both along the beam axis and in the transverse plane, and the \pt error $\sigma(\pt)$.
@@ -763,7 +894,7 @@ Taken from \cite{MT2_2019}.}
       Lepton veto ($\Delta R < 0.2$)              & Yes   & All                     & \\
       Track veto ($\Delta R < 0.1$)               & Yes   & All                     & \\
       Bad calorimeter module veto                 & Yes                 & All                     &  \\
-      \Mt(track, $\vec{\MET}$) [GeV]                     & $> 100$, if $\pt < 150\GeV$ & L  &  \\
+      \Mt(track, $\vec{\met}$) [GeV]                     & $> 100$, if $\pt < 150\GeV$ & L  &  \\
       \hline
     \end{tabular}
   \end{table}
@@ -832,6 +963,67 @@ Taken from \cite{MT2_2019}.}
     There are no discrepancies inconsistent with statistical fluctuations, so the estimate is considered validated.
     To be conservative, a systematic uncertainty is assessed bin-by-bin that is no less than the statistical uncertainty, to prevent any cases of accidental closure, and as large as is necessary to cover any observed discrepancy larger than 1 standard deviation of statistical uncertainty.
 
+  \subsection{Systematics} \label{sec:distrackssysts}
+
+  \begin{table}[htb!]
+    \centering
+    \topcaption[Table of uncertainties affecting the disappearing tracks background prediction.]{\label{tab:distracksyst}
+      Summary of systematic uncertainties in the disappearing track background prediction, together with their typical size ranges across the search bins.
+      The systematic uncertainties arising from the assumption of kinematic invariance of \fshort and from the validation of the background prediction are always taken
+      to be at least as large as the statistical uncertainties on the measured values of  \fshort and on the background prediction in the validation region,
+      respectively.
+      Taken from \cite{MT2_2019}.
+    }
+    \begin{tabular}{ l  c }
+      \hline
+      Source & Range [\%] \\
+      \hline
+      Limited size of data control samples (high \mttwo STC counts) & 1--100\\
+      Limited size of data \fshort measurement samples (low \mttwo disappearing track counts) & 5--45\\
+      Kinematic invariance of \fshort & 10--80\\
+      Validation of background prediction & 25--75\\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  The uncertainties uniquely affecting the disappearing tracks the background prediction, in addition to those obtained from the validation region, are summarized in Table~\ref{tab:distracksyst} together with their typical size ranges across the search bins.
+
+  The first two uncertainties are purely statistical and dominate the total uncertainty. 
+
+  The kinematic invariance of \fshort is checked by varying the \Ht and \met definitions of the \fshort measurement region.
+  Any uncertainty greater than 1 statistical standard deviation is covered by applying a systematic, just as for the validation region systematic.
+  Although the relative uncertainties thus assessed can be large, this is an artifact of extremely low statistics.
+  Discrepancies easily consistent within 2 statistical standard deviations can nonetheless lead to assessment of a large relative systematic uncertainty.
+  Still, these uncertainties are applied to ensure that the disappearing tracks search is conservative.
+
+  As for the classic search, the disappearing tracks signal simulation is subject to extra uncertainties, all of which are shared except the uncertainties assessed to cover the reconstruction of signal disappearing tracks, produced by decaying \chargino.
+  There are three such uncertainties.
+
+  First, fast simulation is used for signals simulated in 2017 and 2018 conditions. 
+  The selection efficiency for signal tracks in fast simulation differs slightly from full simulation, and so a systematic is assessed to cover the difference.
+
+  A 10\% uncertainty is assessed to cover any potential mismodeling of how efficiently the detector would reconstruct tracks from a long-lived \chargino.
+  This is half the difference between unity and the observed efficiency in simulation, for \chargino decays in the regions of the detector that ought to be able to reconstruct the tracks successfully.
+
+  Finally, an uncertainty of 1.5\% is assessed to cover observed differences between full simulation and fast simulation in how often a \chargino that reaches the muon chamber is falsely reconstructed as a muon, triggering the lepton veto.
+
+  \subsection{Results} \label{sec:distracksresults}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_006-a.pdf}
+    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_006-b.pdf}
+    \caption[Comparison of the predicted background and observed data events in the disappearing track search for (upper) 2016 and (lower) 2017--2018.]{Taken from \cite{MT2_2019}}
+    \label{fig:distracksresults}
+  \end{figure}  
+
+  Figure~\ref{fig:distracksresults} shows the observed counts compared with the background estimate for both 2016 and 2017--2018 data.
+  It is worth noting how small the expected background is, especially in the high \pt M and L bins, in which only a few events are observed across the entire 13 TeV dataset recorded from 2016 to 2018, at an event rate on the order of 1 GHz.
+  The background-only hypothesis is consistent with the data, and so these results are interpreted as exclusion limits on the signal models shown in Figure~\ref{fig:charginodiags} with a variety of lifetimes.
+  Since counts in the M and L bins are so small, signals populating the M and L bins need only to have a few expected events to be excluded at 95\% CL by these results.
+
+
+
     \subsubsection{Signal Contamination} \label{sec:distrackssigcontam}
 
     As with the contamination of lepton control regions in the classic search (Section~\ref{sec:MT2sigcontam}), the disappearing tracks search must adjust its expected signal counts for contamination of its control regions.
@@ -876,21 +1068,6 @@ Taken from \cite{MT2_2019}.}
     Both of these effects are small.
     Any terms that consider the combined effect of low \mttwo signal and signal STCs are dropped, as signal is rare in both cases, and so doubly rare in the combined case.
     This procedure outputs an adjustment to expected signal counts that is linear in the signal strength, and conservative, allowing for a straightforward and safe statistical interpretation.
-
-  \subsection{Results} \label{sec:distracksresults}
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_006-a.pdf}
-    \includegraphics[width=0.85\textwidth]{figures/MT2_2019/Figure_006-b.pdf}
-    \caption[Comparison of the predicted background and observed data events in the disappearing track search for (upper) 2016 and (lower) 2017--2018.]{Taken from \cite{MT2_2019}}
-    \label{fig:distracksresults}
-  \end{figure}  
-
-  Figure~\ref{fig:distracksresults} shows the observed counts compared with the background estimate for both 2016 and 2017--2018 data.
-  It is worth noting how small the expected background is, especially in the high \pt M and L bins, in which only a few events are observed across the entire 13 TeV dataset recorded from 2016 to 2018, at an event rate on the order of 1 GHz.
-  The background-only hypothesis is consistent with the data, and so these results are interpreted as exclusion limits on the signal models shown in Figure~\ref{fig:charginodiags} with a variety of lifetimes.
-  Since counts in the M and L bins are so small, signals populating the M and L bins need only to have a few expected events to be excluded at 95\% CL by these results.
 
   \subsection{Limits} \label{sec:distrackslimits}
 
