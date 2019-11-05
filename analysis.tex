@@ -786,9 +786,21 @@ Taken from \cite{MT2_2019}.}
 
   In the model at right, top squarks are pair-produced and decay with equal probability either to the allowed charge of \chargino, or to \lsp, and a bottom quark.
 
-  The disappearing tracks produced by \chargino decays tend to be very high quality and highly isolated, with negligible energy deposits in any of the calorimeter cells along the track's extrapolated path.
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/reliso_SvsB.pdf}
+    \caption[Comparison of signal and background Short Track relative isolation distributions.]
+            {Disappearing tracks produced by \chargino decays (black triangles) tend to be much more isolated than disappearing tracks in background events (red squares).
+              All selections listed in Table~\ref{tab:shorttrackselection} are applied except the isolation selections.
+              The last bin is an overflow bin, containing every track failing the relative isolation selection.
+              The events containing those tracks will either populate control regions, or be rejected entirely, as described in Section~\ref{sec:distracksbgest}.
+              Additional material from \cite{MT2_2019}.}
+            \label{fig:distracksisolation}
+  \end{figure}  
+
+  The disappearing tracks produced by \chargino decays tend to be very high quality and highly isolated (shown in comparison with background in Figure~\ref{fig:distracksisolation}), with negligible energy deposits in any of the calorimeter cells along the track's extrapolated path.
   The quality metrics in this context include the track's impact parameter with respect to the primary vertex, the size of the uncertainty in the track's assigned \pt, and the number of tracker layers in which the track failed to leave a hit when one would be expected.
-  Alongside isolation, these quality metrics allow for signal-like disappearing tracks to be distinguished from disappearing tracks that are very likely to be due to a reconstruction error.
+  Alongside isolation, shown in Figure~\ref{fig:distrackisolation}, these quality metrics allow for signal-like disappearing tracks to be distinguished from disappearing tracks that are very likely to be due to a reconstruction error.
   This forms the basis of the background estimate described in Section~\ref{sec:distracksbgest}.
 
   \subsection{Backgrounds} \label{sec:distracksbg}
@@ -835,7 +847,7 @@ Taken from \cite{MT2_2019}.}
   For this reason, observation of even a relatively long, isolated, maximally signal-like disappearing track is not itself sufficient to discover a signal. 
   An estimate of the background's rate is necessary, to allow a comparison to the observed frequency of disappearing tracks.
 
-  \subsection{Data-Driven Background Estimate} \label{sec:distracksbgest}
+  \subsection{The Short Track Selection and Data-Driven Background Estimate} \label{sec:distracksbgest}
 
   The two surviving disappearing track backgrounds, fake tracks and lost pions, are both produced by extremely rare failure modes of the detector.
   A data-driven background estimate is mandatory, as replicating such pathological edge cases is beyond the capabilities of any feasible simulation.
@@ -899,6 +911,17 @@ Taken from \cite{MT2_2019}.}
       \hline
     \end{tabular}
   \end{table}
+
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.85\textwidth]{figures/sigeff_bylength.pdf}
+      \caption[Signal efficiency with respect to the short track selection.]
+              {The signal efficiency with respect to the full short track selection after selecting events passing the baseline kinematic signal region selection.
+                Additional material from \cite{MT2_2019}.}
+      \label{fig:distrackssigeff}
+    \end{figure}  
+
+    The efficiency for signal tracks to pass this selection is high, 50--65\%, as shown in Figure~\ref{fig:distrackssigeff}.
 
     \subsubsection{Binning} \label{sec:distracksbinning}
 
