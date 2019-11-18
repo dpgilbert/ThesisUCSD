@@ -553,19 +553,68 @@ This section will describe only some of the most essential pieces that have not 
 
 \section{Simulation} \label{sec:simulation}
 
-  The Standard Model and models of new physics predict what happens at the primary interaction, and this needs to be converted into a prediction for what happens in the detector.
+  The Standard Model and hypothetical models of new physics predict what happens at the primary interaction.
+  These parton-level predictions need to be converted into final state particles, and then a prediction of the observable signatures produced by these particles in the detector.
+  To accomplish this, CMS employs a multi-tier Monte Carlo simulation process.
 
   \section{Objectives} \label{sec:objectives}
 
-  Used to study backgrounds and develop estimation techniques, and to design analyses to maximize sensitivity to expected signal signatures.
+  Simulation is used both to understand sources of background and to predict the appearance and yield of signals.
+  Although simulation is subject to uncertainties that cause analyses to prefer using data driven backgrounds, it still captures the gross features of all but the most pathological background sources.
+  For understanding the expected appearance of signals, it is the only option available.
 
   \section{Limitations and Challenges} \label{sec:limitations}
 
-  Ultra-detailed knowledge of the detector at the subatomic level at all locations is unachievable, and the detector's state evolves over time.
-  QCD is irritating, and even electroweak physics is subject to theoretical uncertainties due partly to dependence on experimental inputs, and partly to calculating only to finite order.
-  Can't run the simulation forever, and the computation is expensive.
+  Simulation of collider physics faces four primary challenges.
 
-  \section{The Simulation Pipeline} \label{sec:pipeline}
+  First and foremost is a finite computation budget. 
+  All simulations must be performed numerically, using a Monte Carlo approach.
+  While the physical collider can produce 1 billion event per second and thereby produce events with extremely rare properties, such an event rate is orders of magnitude out of reach of software.
+  This is not necessarily a problem for rare signal models, as a computer can be made to simulate only the signal model of interest, and ignore the much more common background physics, producing simulated events even faster than the collider would produce.
+  However, much more common backgrounds are typically difficult to simulate in the phase space of greatest interest.
+  For instance, QCD events with large \mttwo are extremely rare as discussed in Section~\ref{sec:MT2bg}, but QCD events comprise nearly all of the 1 billion collisions per second observed at CMS, such that even the high \mttwo event rate is non-negligible.
+  Software simply cannot produce a statistically robust sample of these events using the traditional Monte Carlo sampling approach.
+  Section~\ref{sec:RandS} discusses a successful workaround for this problem.
 
-  Matrix elements (MadGraph), observed particles (pythia), how those particles interact with detector components (GEANT).
-  Mention also fastsim vs fullsim (ie replacing GEANT with approximate smearing).
+  The other three problems affect three separate stages of the simulation pipeline.
+
+  First is an uncertainty arising from theory due to the perturbative approximation used to extract predictions from the Standard Model at parton level.
+  Although the Standard Model is capable of producing astonishingly accurate predictions, famously including over 10 digits of accuracy in its prediction of the electron's magnetic moment \cite{electronmu_exp}, calculating predictions to such precision is a laborious undertaking that cannot practically be managed for every conceivable process \cite{electronmu_th}.
+  In practice, most theoretical calculations are truncated at only a few orders, or even only to leading order, and so are not as precise.
+  At CMS, most of these parton-level calculations are performed numerically by the MadGraph generator \cite{madgraph}.
+  This issue is mitigated in part by using data driven predictions for background, but this is not possible for signal, contributing to significant theoretical uncertainties in signal predictions.
+
+  Second is an uncertainty arising due to QCD's non-perturbativity at low energy.
+  At energy scales around 1~GeV and below, the QCD coupling exceeds 1, so that the typical perturbative approach is useless for low energy QCD \cite{qcd_coupling}.
+  As the LHC is a hadron collider, QCD dominates the underlying structure of every event, and although the initial collision may be at a high enough energy scale to allow for perturbative calculation of QCD effects, the energy eventually becomes spread among enough particles to reach the non-perturbative regime.
+  Thus, the conversion of the output of a parton-level generator like MadGraph to the final state particles, chiefly the fragmentation of hadrons to produce jets, can only be performed using heuristics rather than from first principles.
+  CMS simulation typically uses the Pythia program to perform this second step, which implements the Lund string framework of hadronization \cite{pythia}.
+  Moreover, the internal structure of the proton itself is dictated by non-perturbative QCD, creating the need for empirical PDFs as discussed in Section~\ref{sec:PDFs}.
+
+  Finally, the interaction of final state particles with the detector depends on the exact state of the detector at every moment.
+  The detector's state is dynamic, and fine details like which components momentarily overheated or the impact of induced radioactivity in detector components, can only be represented approximately at best.
+  CMS employs two simulation methods for particle interactions with the detector.
+  The first is a detailed simulation of the interaction of simulated particles with as detailed a model of the detector as knowledge permits, implemented in the GEANT program \cite{GEANT}, called full-simulation.
+  Naturally, this is the gold standard, and is applied to simulation campaigns that are either of broad interest to the entire collaboration, or require and can afford the additional computational complexity.
+  The second approximates typical representative detector measurements using empirical parametrized functions to represent, for example, the detector's ECAL resolution for electrons.
+  This is called fast simulation.
+  Fast simulation does not accurately capture the tails of distributions, having limited knowledge of rare events, but accurately predicts the bulk.
+  This makes fast simulation suitable for producing large samples of signal events, but unsuitable for background.
+  Signal events {\it define} the parameter space of interest, and so the bulk of signal events populate the desired region.
+  Typically, only background events deep into the tails of distributions manage to appear signal-like, and so sources of background must be modeled with full simulation.
+
+  In the end, the CMS simulation pipeline cannot be perfect, but is largely robust.
+  Figure~\ref{fig:lepmt2} shows a comparison between simulation and data of the \mttwo distribution in events containing exactly one low \Mt electron or muon and either (left) 0 or (right) 1 b-tagged jet, and additionally with requirements on the minimum \Ht and \met.
+  These are small corners of phase space, combining contributions from multiple distinct physics processes, and yet still the simulation's agreement with data is remarkable, overcoming all of the challenges described above.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-a.pdf}
+    \includegraphics[width=0.48\textwidth]{figures/MT2_2019/Figure_001-b.pdf}
+    \caption[Distributions of \mttwo in data and simulation for the single-lepton control region, to check \mttwo modeling in simulation.]
+            {Modeling of \mttwo in simulation is checked against data with 0 (left) and 1 b-tagged jets, in events satisfying $\Ht > 250$~GeV, $\met > 250$~GeV if $\Ht < 1200$~GeV and $\met > 30$~GeV otherwise, containing one lepton with $\Mt < 100$~GeV, consistent with a \wlnu decay. 
+              The simulation combines all contributing Standard Model processes.
+              Even though the simulation is being asked to predict a narrow corner of phase space, and \mttwo is a complex observable depending in detail on all components of the detector, the agreement is remarkable.
+              Taken from \cite{MT2_2019}.}
+    \label{fig:lepmt2}
+  \end{figure}  
