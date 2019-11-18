@@ -537,6 +537,7 @@ This section will describe only some of the most essential pieces that have not 
 
   Jets produced by hadron fragmentation are constructed from PF candidates using the Anti-$k_t$ algorithm \cite{antikt}.
   A major goal of such an algorithm is including all of the content associated with a hadron's fragmentation in a single jet, and nothing else.
+  Additionally, it is desirable for jets output by an algorithm not to be affected by very low energy particles that may be simple manifestations of noise, so that the same event measured by multiple detectors with different properties would produce nearly identical jets in every case.
   Older jet clustering algorithms simply used a fixed cone size, and included in jets anything that fell inside a cone centered on a few of the larger energy deposits in the calorimeters.
   Modern algorithms start at the particle level and associate particles to jets using distance measures similar to the Lund distance (Equation~\ref{eqn:lund}) used in \mttwo.
   The Anti-$k_t$ algorithm uses the measure of distance between particles $i$ and $j$ defined as
