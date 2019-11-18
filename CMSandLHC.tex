@@ -90,6 +90,12 @@ This section provides a summary of the essential information.
   The tracker and the calorimeters are inside a solenoid producing a magnetic field, while the muon system is subject only to the external, returning field of the solenoid.
   Altogether, the detector measures about 7.5 meters in radius and 21 meters in length.
   As suggested by the cylindrical detector shape, the experiment uses a cylindrical coordinate system, in which the beam axis is assigned to the z axis, and the angle in the transverse plane, $\phi$, is measured starting from a line connecting CMS to the center of the LHC ring.
+  The trajectories of particles is often described using both this angle $\phi$ and the pseudorapidity $\eta$, 
+  \begin{equation} \label{eqn:eta}
+    \eta = \log\left[\tan\left(\frac{\theta}{2}\right)\right]
+  \end{equation}
+  where $\theta$ is the angle made with the z axis \cite{cmstdr}.
+  This usage is motivated by the fact that the average flux of particles produced by collisions in a window of fixed $\Delta\eta=\eta_2-\eta_1$ is roughly constant for any $\eta_1$ and $\eta_2$.
 
   This section describes each of the subsystems, as well as the objects that are constructed using their measurements.
 
@@ -189,6 +195,38 @@ This section provides a summary of the essential information.
   As a general guideline, no element in the tracker is permitted to have an expected probability of a hit greater than 1\% per bunch crossing, to maintain a low probability of tracks intersecting.
   This structure produces outstanding sub-millimeter resolution of a track's origin, shown in Figure~\ref{fig:trackresolution}, allowing tracks originating from collisions only microns apart to be separated, and tracks originating from decays of particles with decay lengths on the order of a millimeter to be identified.
   The former is important for rejection of pileup, and the latter for identification of jets originating from bottom quark hadrons.
+
+    \subsubsection{Vertices and b-Tagging} \label{sec:btagging}
+
+    Almost every track ultimately originates from a single point in a proton-proton collision.
+    Tracks reconstructed in the tracker can be extrapolated back to their origins to form vertices, locations at which multiple tracks intersect and the inferred location of the initial hard interaction between partons.
+    All the content associated with a single vertex constitutes a single event, subject to analysis in an attempt to determine the nature of the physics that occurs in the hard interactions
+
+    Some tracks do not extrapolate to a proton-proton primary vertex back but instead a point a few millimeters away.
+    While a few millimeters is not even enough to exit the beam pipe, such a decay length is nevertheless well within the tracker's resolution.
+    These features are called secondary vertices, and are a distinctive feature of jets associated with hadrons containing bottom quarks.
+    These hadrons, uniquely, have decay lengths on the order of millimeters.
+    Charmed hadrons tend to decay somewhat more quickly, while hadrons containing only up, down, and strange quarks tend to live long enough to reach the calorimeters.
+    These secondary vertices, along with some other indicators including the muon content of a jet, the number of tracks, and the mass, are leveraged bysophisticated algorithms that can identify jets originating from bottom quarks produced in the hard process with high efficiency \cite{btagging}.
+    Such jets are said to be ``b-tagged.''
+    The fake rate for a given efficiency achieved by various b-tagging algorithms is shown in Figure~\ref{fig:btageff}, with the older algorithms listed first and the newer, machine learning-based algorithms last.
+    The analyses discussed in Section~\ref{analysis} apply the DeepCSV algorithm (purple) at the 1\% light quark fake rate working point, which achieves a successful b-tag rate of nearly 70\% and a charm quark mistag rate of just over 10\%.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/btageff.pdf}
+    \caption[Efficiency and fake-rates of various b-tagging algorithms.]{
+      The fake rate of various b-tagging algorithms (different colored lines) are plotted against the successful tag rate for genuine b-jets.
+      Although charm quarks are distinguishable from bottom quarks in a variety of ways, including shorter lifetimes, they are still similar enough to cause a meaningful fake rate.
+      These curves are plotted as dotted lines.
+      The lighter quark fake rate is much lower, shown as solid lines.
+      The algorithm of most interest is DeepCSV, a machine learning algorithm used in the analyses discussed in Section~\ref{analysis}.
+      Taken from \cite{btagging}.}
+    \label{fig:btageff}
+  \end{figure}  
+
+  Although the ability to identify a jet's source flavor is intrinsically useful, the identification of bottom quarks is of special interest because they tend appear in the majority of Higgs and top quark decays, and for their relative rarity in generic QCD multijet events compared to lighter quark flavors, which means that requiring many b-tags greatly suppresses background.
+  Supersymmetry searches consider the case of bottom and top superpartners separately due in large part to the number of b-jets expected in the final state, and the consequently different, smaller backgrounds that dominate these models.
 
   \begin{figure}[h!]
     \centering
@@ -371,25 +409,64 @@ This section provides a summary of the essential information.
 
 \section{CMS Event Reconstruction} \label{sec:reconstruction}
 
-  \subsection{Challenges} \label{sec:challenges}
+After observing the signatures of particles in the detector, CMS must reconstruct what happened in the event.
+A fully detailed description is well beyond of this document and indeed, well beyond the scope of any single document.
+This section will describe only some of the most essential pieces that have not already been covered by previous sections.
 
-  Spray of thousands of particles, many in dense jets, from collisions distributed across a rather large beam crossing, millions of times per second.
-  Pace is so high that travel of electrical impulses along the equipment is comparable to the collision frequency.
+  \subsection{Pileup and the Trigger System} \label{sec:pileupandtrigger}
 
+  Previous sections have discussed some of the challenges faced by the detector in reconstructing a single collision.
+  However, the large event rate at CMS produces its own set of challenges.
+  First, the sheer number of bunch crossings per second produces too high a data rate to save the measurements of all but a small subset of collisions \cite{cmstdr}.
+  Second, the collision of protons in bunches rather than singly to maintain a high data produces multiple simultaneous collisions in each bunch crossing, called pileup, which must be disentangled.
+  
     \subsubsection{The Trigger System} \label{sec:trigger}
 
-    High event rate needs to be suppressed due to computing limitations.
-    High event rate is necessary to see rare things (how rare?).
+    The LHC provides CMS with roughly 1 billion collisions per second spread across 40 million bunch crossings per second, one per 25~ns.
+    This enormous event rate is necessary to provide sensitivity to very rare physics.
+    For instance, the expected number of gluino pair-production events observed at CMS is approximately 1 across the entire 2016, 2017, and 2018 datasets, for a gluino mass of 3~TeV.
+    Unfortunately, as each bunch crossing constitutes roughly 1.5~MB of data, it is feasible to write only approximately 100 events per second to disk, for 150~MB/s \cite{cmstdr}.
+    All but one bunch crossing in 400,000 must be rejected, a feat accomplished by a two-tier trigger system \cite{trigger}.
+    
+    The Level-1 trigger system is implemented in hardware and considers gross features of the event that are rapidly computable and qualify it for further consideration.
+    It rejects the vast majority of bunch crossings, reducing the rate from 40~MHz to 100~kHz.
+    The rejected events are almost all mundane events containing only a few low energy hadron jets.
+    Some of the signatures that may qualify an event for further consideration include measurements in the muon system consistent with an isolated muon of a minimum \pt, or preliminary signs that the event may have large missing energy.
+    The Level-1 trigger system is allotted only 3.2~$\mu$s to make a decision, of which less than 1~$\mu$s is available to perform a limited reconstruction, and so is subject to errors that can cause it to incorrectly reject some borderline events, so that the trigger is not a perfect step function.
+    For instance, the electron energy resolution of the Level-1 reconstruction is shown in Figure~\ref{fig:L1res} (upper), along with the resulting trigger turn-on curve (lower).
+    To avoid the need to simulate this trigger turn on, analyses typically select only events sufficiently distinctive that they are accepted by the trigger with 100\% efficiency.
 
-    \subsubsection{Pileup} \label{sec:pileup}
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.55\textwidth]{figures/L1_res.pdf}\\
+      \includegraphics[width=0.55\textwidth]{figures/electron_turnon.pdf}
+      \caption[Level-1 trigger electron energy resolution and associated turn-on curve.]{
+        (Upper) The electron energy resolution of the Level-1 CMS trigger obtained in 7~TeV collisions, in the barrel.
+        Positive values correspond to incorrectly small measurements of the electron energy, and may cause candidate electrons to fall short of the minimum energy requirement, leading to a trigger inefficiency.
+        (Lower) The Level-1 electron trigger turn-on curve as a function of offline reconstructed electron energy, with a nominal threshold of 15~GeV.
+        The black markers are for electrons in the barrel, corresponding to the electron population whose energy resolution is shown in the upper plot, and red is for electrons in the endcaps.
+        To avoid exposing itself to trigger turn-on systematic uncertainties, an analysis may be forced to select only events possessing an electron with energy greater than 30~GeV, despite the trigger nominally accepting events containing an electron with energy as low as 15~GeV.
+        Taken from \cite{trigger}.}
+      \label{fig:L1res}
+    \end{figure}      
+
+    Events passing the Level-1 trigger are subjected to a more careful analysis by the High Level trigger (HLT), implemented in software on standard servers.
+    With 13,000 machines working in parallel, the HLT is allotted 90~ms per event, enough time for reconstruction of the portion of the event identified by the Level-1 trigger as interesting at near offline quality.
+    One event in 1000 considered by the HLT is sufficiently spectacular to qualify to be written to disk, and these constitute the CMS dataset available for final offline analysis.
+
+    \subsubsection{Pileup Correction} \label{sec:pileup}
 
     Obtaining a high enough event leads to many simultaneous collisions (not 1 proton collision at a time, but bunches crossing every 25 ns).
     Charged pileup contribution can be subtracted exactly using the tracker, but neutral pileup correction is heuristic.
     Effective area vs delta-beta.
 
+    In addition to the high bunch crossing rate, the reconstruction also must cope with the large number of simultenous collisions in each bunch crossing, called pileup.
+    The mean number of pileup collisions was 32 in 2018 \cite{lumipublic}, and a significant number of bunch crossings exceeded 60 pileup collisions, as can be seen in Figure~\ref{fig:pileup}.
+    Given that only one bunch crossing in 400,000 contains a collision interesting enough to be written to disk, the number of interesting collisions per bunch crossing is at most 1, and the others must be subtracted.
+
     \begin{figure}[h!]
       \centering
-      \includegraphics[width=0.65\textwidth]{figures/efficiencyVsPt.pdf}
+      \includegraphics[width=0.65\textwidth]{figures/pileup.pdf}
       \caption[Pileup distribution in 2018.]{
         The distribution in 2018 of the number of simultaneous collisions per bunch crossing, so-called pileup, provided by the LHC and observed by CMS.
         The average bunch crossing produced 32 simultaneous collisions, with an inferred total inelastic collision cross section of 69.2~mb.
@@ -397,24 +474,81 @@ This section provides a summary of the essential information.
       \label{fig:pileup}
     \end{figure}  
 
-  \subsection{Vertices} \label{sec:vertices}
+    Barring errors in track reconstruction, charged pileup can be subtracted perfectly \cite{pileup}.
+    Charged particles produce tracks, which can be associated to vertices.
+    Tracks associated to vertices other than the primary vertex of interest can be subtracted.
+    This is not possible for the neutral content of an event, which is known only from calorimeter deposits.
+    
+    There exist two popular heuristic methods for subtracting neutral pileup.
+    The first method, called Delta-Beta, proposes that the neutral energy from a pileup vertex is equal everywhere to exactly one half of the charged pileup, because particles with charges +1, -1, or 0 tend to be produced with roughly equal probability and energy.
+    This is true on average, but of course is only approximately true in any given instance.
+    The second method, called Effective Area, benefits from larger pileup and has gained popularity recently.
+    This method divides the detector into many small regions and calculates the median energy density in these regions, $\rho$.
+    By taking the median, the calculation naturally mitigates the impact of outlier regions of the detector with large contributions from the primary vertex, which tends to be much more energetic than any of the pileup vertices.
+    This median energy deposit is taken to be representative of the pileup contribution in every region of the detector, true by construction within statistical fluctuations, and subtracted everywhere to leave only the energy believed to originate from the primary vertex.
+    This algorithm is only as accurate as the statistical fluctuations of pileup energy are small, and so benefits directly from increased pileup vertex counts.
+    At present, both algorithms have similar performance and see wide use.
+    The search in Section~\ref{sec:MT2classic} uses Effective Area, while the extension to this search in Section~\ref{sec:distracks} uses the Delta-Beta method to correct the isolation of disappearing tracks similarly.
 
-  Use tracker to identify tracks and extrapolate them back to an origin point.
-  These origins are vertices.
+    Pileup also makes reconstruction more difficult in a more general sense by overwhelming reconstruction algorithms.
+    Of special importance to the Section~\ref{sec:distracks} disappearing tracks analysis is its effect on track fake rates.
+    High pileup vertex counts cause proportionally increased hit counts in the tracker.
+    With more hits to consider, the track reconstruction algorithm is more prone to make errors, and connect hits to form tracks that are not all associated with the same genuine particle.
+    For instance, the algorithm may output a fake track using three hits produced by particles from three different pileup vertices that happen to fall in a line extrapolating to the primary vertex.
+    The tracker is also overwhelmed at the hardware level, with higher particle flux causing higher operating temperatures, and therefore more noise, and overflowing readout buffers during periods where the beam luminosity, and therefore the typical pileup, is especially high \cite{cms_tracker}, as shown in Figure~\ref{fig:hitefflumi}.
+    Events containing disappearing tracks, especially very short tracks, disproportionately originate from events at the extreme high end of the pileup distribution, indicating that pileup and, more generally, high beam luminosity directly causes background for this search by inducing track reconstruction errors.
 
-    \subsubsection{B-Tagging} \label{sec:btagging}
-
-    Some tracks will not extrapolate back to a proton collision point but instead a point a few millimeters away: secondary vertices characteristic of b-tags.
-    Describe other indicators used to identify b-jets and the efficiency.
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.65\textwidth]{figures/HitEff_vs_InstLumi.png}
+      \caption[Hit efficiency as a function of instantaneous beam luminosity.]{
+        The efficiency for a charged particle to leave a hit drops at high instantaneous beam luminosity, especially in the first layer of the tracker (red).
+        Periods of high luminosity tend to produce events with high pileup.
+        Taken from \cite{cms_tracker}.}
+      \label{fig:hitefflumi}
+    \end{figure}  
 
   \subsection{Particle Flow} \label{sec:particleflow}
 
-  Describe particle flow algorithm and advantage relative to other techniques.
+  The general purpose offline reconstruction algorithm used in most cases at CMS is called Particle Flow \cite{particleflow}.
+  Particle Flow (PF) attempts to reconstruct every individual particle in an event by integrating information from all detector components, producing so-called PF candidates.
+  Rather than, say, obtain an energy measurement entirely from the calorimeters and ignore the energy measurement that can be made using the curvature of a particle's track, PF uses the tracker and the calorimeters as checks on each other, and intelligently assigns a final energy based on its beliefs about the relative trustworthiness of each measurement in each case.
+  This extraction of all available information from the event rather than the traditional segregated inputs from different detector components is in part responsible for CMS's tremendous successes in pursuits like b-tagging, which achieves especially high efficiency by considering all possible clues simultaneously using a machine learning approach, rather than for instance using only the secondary vertex and track multiplicity information provided by the tracker \cite{particleflow}, or electron identification efficiency, as shown in Figure~\ref{fig:PFimprovement}.
+  
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.65\textwidth]{figures/pfimprovement.pdf}
+      \caption[Improvement of electron identification efficiency as a function of \pt using an integrated reconstruction approach like Particle Flow.]{
+        The identification efficiency of electrons produced by the decay of a Z boson is dramatically improved by using information from both the tracker and the ECAL, rather than the ECAL alone as has been the standard approach in other detectors at hadron colliders.
+        The absolute efficiency gain, $\mathrm{Eff}_{\mathrm{ECAL}+\mathrm{Tracker}}-\mathrm{Eff}_{\mathrm{ECAL}}$ is plotted.
+        Taken from \cite{particleflow}.}
+      \label{fig:PFimprovement}
+    \end{figure}  
 
+
+  This approach can allow PF to reject fakes or badly mismeasured particles.
+  For instance, PF rejects tracks that do not extrapolate to significant calorimeter desposits, indicating that they are neither electrons nor hadrons, and also do not have a corresponding track in the muon chamber.
+  In most cases, PF is correct to reject these tracks, which are almost assuredly fakes.
+  In rare cases, the track is of such high quality that it passes the ``high purity'' selection described in Section~\ref{sec:tracker}, indicating that the tracker is highly unlikely to have made an error.
+  These are called ``Lost Tracks,'' and are the foundational object for the track selection used in the Section~\ref{sec:distracks} disappearing tracks analysis.
+  The fact that PF rejected these tracks despite a strong tracker measurement flags them as worthy of further study, serving as a useful clue for searches for new physics.
+  
   \subsection{Jet Clustering} \label{sec:jetclustering}
 
-  Jets are made from PF candidates using anti-kt.
-  How accurately?
+  Jets produced by hadron fragmentation are constructed from PF candidates using the Anti-$k_t$ algorithm \cite{antikt}.
+  A major goal of such an algorithm is including all of the content associated with a hadron's fragmentation in a single jet, and nothing else.
+  Older jet clustering algorithms simply used a fixed cone size, and included in jets anything that fell inside a cone centered on a few of the larger energy deposits in the calorimeters.
+  Modern algorithms start at the particle level and associate particles to jets using distance measures similar to the Lund distance (Equation~\ref{eqn:lund}) used in \mttwo.
+  The Anti-$k_t$ algorithm uses the measure of distance between particles $i$ and $j$ defined as
+  \begin{equation} \label{eqn:antikt}
+    d_{ij} = \min\left(\frac{1}{k_{ti}^2},\frac{1}{k_{tj}^2}\right)\frac{\Delta R_{ij}^2}{R^2}
+  \end{equation}
+  where $\Delta R_{ij}^2=(\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2$, $R$ is a tunable jet cone size parameter, and $k_{ti}$ is the \pt of particle $i$.
+  The algorithm gets its name from the appearance of $k_t^2$ in the denominator rather than the numerator of the minimum as in its predecessor, the $k_t$ algorithm.
+  The most important advantage of this algorithm relative to its predecessor is the suppression of the effect of very low energy particles on jet composition and shape by using the minimum of $1/k_t$ rather than of $k_t$.
+  This causes low energy particles to cluster not simply with whatever the nearest particles are, but rather with the nearest {\it high energy} particle, since $d_ij$ is always large for two low energy particles, while it is suppressed by the smallness of the high energy particle's $1/k_t^2$ in any pairing with a low energy particle.
+  Nearby hadrons producing partially overlapping jets can thereby be distinguished, by clustering the lower energy particles around nearby but separate high energy cores, instead of forming one fat jet from the agglomeration of all particles falling inside the cone, and jets can pick up low energy particles that may have been radiated a moderate distance away from the core of the source jet, instead of these outliers clustering amongst themselves to form spurious jets.
+  Thus, jets clustered by the modern Anti-$k_t$ algorithm closely correspond to the source hadrons, making the \njet observable more useful than ever before, and also assisting flavor tagging.
 
 \section{Simulation} \label{sec:simulation}
 
