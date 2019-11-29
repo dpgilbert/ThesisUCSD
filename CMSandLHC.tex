@@ -196,6 +196,21 @@ This section provides a summary of the essential information.
   This structure produces outstanding sub-millimeter resolution of a track's origin, shown in Figure~\ref{fig:trackresolution}, allowing tracks originating from collisions only microns apart to be separated, and tracks originating from decays of particles with decay lengths on the order of a millimeter to be identified.
   The former is important for rejection of pileup, and the latter for identification of jets originating from bottom quark hadrons.
 
+  The CMS pixel tracker was upgraded after 2016 for the 2017 and 2018 runs, increasing the number of layers from three to four.
+  Comparisons between the track reconstruction efficiency and fake rate in 2016 and 2017 are shown in Figure~\ref{fig:16vs17}.
+  The new pixel tracker significantly improves performance, for all tracks.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/tracking_16vs17_eff.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/tracking_16vs17_fake.pdf}
+    \caption[Comparison of tracker performance in 2016 and after the upgrade to the pixel tracker.]{
+      A comparison of the performance before (blue squares) and after (red circles) the pixel tracker upgrade following the 2016 data taking period.
+      The upgrade increased the efficiency (left) and reduced the fake rate (right) for tracks of all momenta.
+      Taken from \cite{cmstrackingperformance}.}
+    \label{fig:16vs17}
+  \end{figure}  
+
     \subsubsection{Vertices and b-Tagging} \label{sec:btagging}
 
     Almost every track ultimately originates from a single point in a proton-proton collision.
@@ -210,7 +225,7 @@ This section provides a summary of the essential information.
     These secondary vertices, along with some other indicators including the muon content of a jet, the number of tracks, and the mass, are leveraged bysophisticated algorithms that can identify jets originating from bottom quarks produced in the hard process with high efficiency \cite{btagging}.
     Such jets are said to be ``b-tagged.''
     The fake rate for a given efficiency achieved by various b-tagging algorithms is shown in Figure~\ref{fig:btageff}, with the older algorithms listed first and the newer, machine learning-based algorithms last.
-    The analyses discussed in Section~\ref{analysis} apply the DeepCSV algorithm (purple) at the 1\% light quark fake rate working point, which achieves a successful b-tag rate of nearly 70\% and a charm quark mistag rate of just over 10\%.
+    The analyses discussed in Section~\ref{sec:analysis} apply the DeepCSV algorithm (purple) at the 1\% light quark fake rate working point, which achieves a successful b-tag rate of nearly 70\% and a charm quark mistag rate of just over 10\%.
 
   \begin{figure}[h!]
     \centering
