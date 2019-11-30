@@ -455,6 +455,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
     }
     \label{fig:ISRdiag}
   \end{figure}  
+  \unitlength=2mm
 
   In summary, QCD's intractability at low energy combined with its raw strength make precise predictions of the outcome of hadron collisions difficult to obtain, despite the Standard Model's overall success in describing the interactions of elementary particles.
   The Standard Model prediction cannot always be obtained directly from first principles with satisfactory accuracy.
@@ -625,27 +626,68 @@ This section introduces a few of the known problems with the Standard Model.
 
 \section{Supersymmetry} \label{sec:SUSY}
 
-SUSY is one particular model that can patches up some of the SM's issues.
+Among all the proposals for extending the Standard Model and repairing many of its issues at the TeV scale, supersymmetric extensions are by far the most popular and intensively researched.
+Supersymmetry proposes that for every Standard Model fermion (boson), there exists a {\it superpartner} boson (fermion) with nearly identical properties aside from its spin.
+The superpartners of spin-$\frac{1}{2}$ particles are spin-0, and the superpartners of spin-1 and spin-0 particles are spin-$\frac{1}{2}$.
+For example, the superpartner of the electron is a spin-0 particle called the scalar electron, usually contracted to ``selectron.''
+The fermionic superpartners of bosons instead receive the ``-ino'' suffix, for example ``higgsino.''
+If supersymmetry is realized at the TeV scale, it would resolve many of the Standard Model's problems, and would be experimentally testable using TeV-scale particle colliders.
+This section introduces some of the theoretical reasons for the popularity of supersymmetry, and how it may be targeted experimentally.
 
   \subsection{Theoretical Appeal} \label{sec:SUSYappeal}
 
-  Solves up hierarchy problem if at the weak scale (so, potentially accessible to LHC) and provides a dark matter candidate.
-  (Focus on RPC SUSY, due to proton stability.)
+  A full discussion of the theoretical appeal of supersymmetry is beyond the scope of this thesis, so this section briefly discusses only a pair of the most compelling points that are most closely connected to why supersymmetry at the TeV scale is of great interest.
+  First, supersymmetry provides a well-motivated dark matter candidate, a concrete realization of the WIMP miracle.
+  Second, it resolves the Hierarchy Problem and is almost certainly the only solution that possibly can; if supersymmetry is not realized at the TeV scale, it likely means that the Standard Model's fine tuning has somehow been misinterpreted and is not in fact a problem.
 
-  In Equation~\ref{eqn:masscorrection}, notice that the Higgs' coupling to itself, a boson, and to the top quark, a fermion, appear with opposite signs.
-  This is general: the contributions of bosons and of fermions to the Higgs mass have opposite signs and tend to cancel.
+  Supersymmetry's dark matter candidate arises as a side effect of a solution to an unrelated problem.
+  Naive implementations of supersymmetry make possible the decay $p \rightarrow \pi^0~e^+$ via mediation by a squark (the pion is the lightest meson and the only hadron lighter than the proton).
+  The proton would be highly unstable for any reasonable squark mass, in conflict with the lower limit on this decay mode of some $10^{32}$ years, and the any-mode limit of more than $10^{29}$ years \cite{PDG}.
+  However, it is possible to have a stable proton within supersymmetric models, by proposing that there exists a conserved multiplicative quantum number called R-parity and assigning superpartners odd R-parity and Standard Model particles even R-parity.
+  This saves the proton, but as a side effect also makes the lightest supersymmetric particle (LSP) stable, since decays to final states including other superpartners are kinematically impossible and decays to final states containing only Standard Model particles cannot conserve R-parity \cite{PDG}.
+
+  At first, LSP stability appears to be a problem as severe as proton decay.
+  If the LSP is stable, then there should be a large relic population descending from the primordial plasma, in fact this relic population may represent the majority of the mass of the Universe, but no such population has ever been observed.
+  However, astrophysical observations have assembled a compelling case that a majority of the mass of the Universe is WIMPs, making it possible that stable LSPs {\it have} been observed, via their gravitational interactions.
+  Of course, this position is only tenable if one of the superpartners has the properties necessary to be a dark matter candidate.
+  The superpartners of neutrinos, the sneutrinos, are an obvious first guess, but their interaction cross sections are too large in generic implementations of supersymmetry, so that a sneutrino LSP requires a special purpose-built model to be viable \cite{sneutrinos}.
+  Fortunately, the neutral superpartners of the weak bosons, the neutralinos, could have even smaller interaction cross sections than sneutrinos, and are ideal dark matter candidates.
+  Moreover, as part of supersymmetry's solution to the Hierarchy Problem, the neutralinos in general and especially the higgsino are constrained to be relatively light \cite{AMSB, SUSYnaturalness, naturalWIMP}, making a neutralino LSP plausible on more than phenomenological grounds.
+
+  The supersymmetric solution to the Hierarchy Problem is founded on a simple observation.
+  In Equation~\ref{eqn:masscorrection}, the Higgs' coupling to itself, a boson, and to the top quark, a fermion, appear with opposite signs.
+  This is general: the contributions of bosons and of fermions to the Higgs mass have opposite signs.
   Among the Standard Model fields, this is not very helpful, since the top quark simply dominates the other fields.
-  
+  But, if every boson had a fermion counterpart with exactly the same properties and vice versa, all contributions to Equation~\ref{eqn:masscorrection} would exactly cancel.
+  Of course, experiments have long excluded the existence of, say, a selectron of the same mass and interactions as the electron, so supersymmetry must be spontaneously broken if it exists, with the superpartners pushed to a higher mass scale.
+  A variety well-motivated mechanisms for this have been proposed \cite{GMSB,AMSB}.
+  Whatever the mechanism, the scale of supersymmetry breaking would lead directly to the observed Higgs mass, implying that superpartners and especially the higgsino should begin to appear at energies not far beyond the observed Higgs mass \cite{AMSB,GMSB,SUSYnaturalness,naturalWIMP}.
 
   \subsection{Experimental Signatures} \label{sec:SUSYexp}
 
-  SUSY produces MET, and in strong SUSY decays, potentially lots and lots of jets.
-  Since SUSY
+  Since every supersymmetric particle must decay to the nearly undetectable LSP, the primary signature of superpartner production in colliders is large missing energy and momentum, carried away by the undetectable LSP.
+  Additionally, conservation of R-parity requires that superpartners be produced in pairs, so that these events are characterized by {\it two} heavy invisible particles.
+  As experimental constraints on the visible superpartner masses increase, the likelihood that the decays are extremely energetic also increases.
+  Two particles with masses of perhaps 2~TeV would be produced only rarely, but their events would be extraordinarily high energy, unless the LSP mass is also large and absorbs most of the decay energy.
+
+
+  By definition, the LSP is the most energetically accessible superpartner.
+  Even so, the preferred supersymmetry search strategy is to use the invisibility of the LSP to identify decay chains of more massive but more strongly interacting superpartners, as the LSP itself must be very weakly interacting, and therefore have a very low production rate, if it exists.
+  At hadron colliders, the best candidate superpartners are those participating in the strong interactions, squarks and gluinos, due to the relatively large production cross sections for strongly interacting particles (see Figure~\ref{fig:SUSYxsec}). 
+  Unfortunately, while the mass of the LSP is restricted to a relatively low value if supersymmetry is to solve the Hierarchy Problem, the masses of other superpartners are not as strongly constrained.
+  Attempts to observe the LSP in decays of more easily produced superpartners require that these intermediate states have accessible masses, which is not necessarily the case for any experiment to date \cite{SUSYnaturalness,naturalWIMP}.
+  It may be necessary to search for direct LSP production if the other superpartners are too massive, which will require a vast dataset due to the low production rate.
+
+  As the present datasets are still too small for highly sensitive direct LSP searches, most current analyses are two-dimensional, targeting a relatively easily pair-produced heavy superparter and the LSP ultimately produced at the end of its decay chain.
 
   \subsection{Simplified Models} \label{sec:SUSYsms}
 
-  SUSY parameter space is vast, so we consider one potential discovery channel at a time.
-
+  Due to the large number of particles and free parameters in even the simplest supersymmetric extensions of the Standard Model, it is not possible to make exact calculations that hold for every possible realization of supersymmetry, and every supersymmetry simulation is to some extent dependant on the exact choices of free parameters.
+  To make calculations tractable, the community has widely adopted use of simplified models \cite{SMS}.
+  Simplified models are effective field theories that assume all superpartners except those of interest are at an inaccessible mass scale.
+  Effectively, instead of extending the Standard Model with every superpartner simultaneously, only a few particles, perhaps only the gluino and the LSP, are added.
+  This makes it possible to calculate pair-production cross sections as a function of mass, allows for the decay channel(s) to be set without worrying about the model's self-consistency, and so on without excessive computational effort.
+  The gluino pair-production cross section as a function of mass in such a simplified model is shown in Figure~\ref{fig:SUSYxsec}.
   \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/gluino_xsec.pdf}
@@ -657,8 +699,42 @@ Compare Figure 5 (upper) from \cite{SUSYxsecs}, of which this is a simplified re
 }
     \label{fig:SUSYxsec}
   \end{figure}  
+  Results expressed in these models are straightforwardly reinterpreted as general constraints on more realistic models with more complicated phenomenologies.
 
 \section{Other Models} \label{sec:othermodels}
 
-Introduce leptoquarks and mono-$phi$.
+While supersymmetry is of greatest interest and so drives the design of many searches for new physics, it shares its primary signatures with some other hypothetical extensions of the Standard Model.
+Two are worth special mention, since they are considered by the analysis discussed in Section~\ref{sec:MT2classic}.
 
+Some models propose the existence of ``leptoquarks,'' strongly-interacting bosons that have vertices in which one fermion is a lepton and one is a quark, with one example shown in Figure~\ref{fig:LQvertex}.
+These models have recently attracted some interest due to their ability to explain some minor anomalies in a few rare meson decays \cite{LQhunter,minorBanomaly,Banomaly}.
+As leptoquarks can be pair-produced and decay to a neutrino and a quark, they produce a very similar experimental signature to a squark decaying to a quark and LSP, in the limit where the LSP is nearly massless.
+Therefore, searches for squarks decaying to LSPs can easily be reinterpreted as searches for leptoquarks.
+
+\begin{figure}[h!]
+  \centering
+  \begin{fmffile}{LQvertex}
+    \begin{fmfgraph*}(40,25)
+      \fmfleft{i1,i2}
+      \fmfright{o1,o2}
+      \fmfbottom{b}
+      \fmf{fermion,label=$q$,label.side=left}{i2,v1}
+      \fmf{fermion,label=$\nu$,label.side=left}{v1,o2}
+      \fmf{scalar,label=LQ,label.side=left}{v1,b}
+    \end{fmfgraph*}
+  \end{fmffile}
+  \caption[A defining leptoquark vertex.]{
+    Leptoquarks are defined by vertices that connect quarks and leptons. 
+    In this example, the lepton is a neutrino.
+  }
+  \label{fig:LQvertex}
+\end{figure}  
+
+
+Another empirical model, this time motivated by a small excess in events with large missing energy and relatively low energy, proposes a generic strongly-interacting scalar $\phi$ mediating Standard Model interactions with a fermionic dark matter candidate $\psi$ \cite{monophi} as shown in Figure~\ref{fig:monophidiag}, with parameters tuned to match the minor observed anomaly.
+This model need not involve pair-production and could in principle have a smaller mass scale than supersymmetry, and so can produce events with lower energy and lower numbers of hadronic jets than would be typical for supersymmetric models.
+While not nearly as well-motivated theoretically as supersymmetry, it provides a framework for analyzing anomalies in relatively low activity kinematic regions that superpartner pair-production events cannot easily populate.
+
+In general, while supersymmetry drives the design of many searches for new physics, the signatures of supersymmetry are in practice very general, and searches nominally targeting supersymmetry are in practice sensitive to a wide variety of models of new physics.
+Supersymmetric models are used as a benchmark means of communicating results that is familiar throughout the elementary particle physics community.
+Ultimately, the focus of experiments is on providing evidence to support or refute any potential explanations of observations that conflict with the Standard Model prediction.
