@@ -7,7 +7,7 @@ This section introduces the theoretical context of these searches, describing fi
 \section{The Standard Model of Particle Physics} \label{sec:standardmodel}
 
 Modern elementary particle physics finds itself in a peculiar state.
-Physicists have constructed a theoretical model, now called the Standard Model of Particle Physics (the Standard Model; SM), that is the most quantitatively accurate scientific model of any kind, consistent with experiment in almost every laboratory test, even when experimental uncertainty is smaller than a part per ten billion \cite{electronmu_exp,electronmu_th}, with its most famously accuract prediction displayed in Table~\ref{tab:electronmu}.
+Physicists have constructed a theoretical model, now called the Standard Model of Particle Physics (the Standard Model; SM), that is the most quantitatively accurate scientific model of any kind, consistent with experiment in almost every laboratory test, even when experimental uncertainty is smaller than a part per ten billion \cite{electronmu_exp,electronmu_th}, with its most famously accurate prediction displayed in Table~\ref{tab:electronmu}.
 \begin{table}
 \centering
 \begin{tabular}{r l}
@@ -25,8 +25,10 @@ Theory & 2.002319304363 (15)
 
 It is important to take this time to reflect on the Standard Model's astonishing accuracy, because the Standard Model is known with certainty to be imperfect, for a few reasons. 
 A subset are discussed in Section~\ref{sec:SMproblems}.
+As a result, the Standard Model is sometimes treated with disdain, belying its quantitative success as a model of nature.
+This attitude is born from frustration.
 Particle physicists have a theory {\it known} to be incomplete, only an approximation, and yet so accurate an approximation that no evidence in favor of any specific proposed extension has ever been found.
-Modern particle physicists hope to find experimental clues by testing the Standard Model using any available means, including by comparing its predictions for the outcomes of high energy proton collisions with experimental data.
+Modern particle physicists hope to find experimental clues by testing the Standard Model using any available means, including, as in this work, by comparing its predictions for the outcomes of high energy proton collisions with experimental data.
 
   \subsection{A Brief Description} \label{sec:SMdescription}
 
@@ -37,12 +39,12 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   The particles can be grouped in several ways, but by far the most significant is to group bosons and fermions.
 
   The bosons of the Standard Model are the photon (typically indicated by $\gamma$), the W$^+$ and W$^-$, the Z, the eight gluons, and the Higgs.
-  Of these, the Higgs has no intrinsic angular momentum (``spin-0'') and the others have intrinsic angular momentum of exactly $\hbar$ (``spin-1'').
+  Of these, the Higgs has no intrinsic angular momentum (``spin-0'') and the others have intrinsic angular momentum of exactly $\,\hbar$ (``spin-1'').
   One of the major insights obtained from QFT is that the existence of spin-1 particles requires the existence of fermions that interact with them, and vice versa.
   A fermion that interacts with a boson is said to be ``charged under'' the boson.
   Moreover, pure fermion interactions are forbidden, so that fermion-fermion interactions require a ``mediating'' boson under which both fermions are charged, while boson-boson interactions are perfectly acceptable.
   For this reason, bosons are said to mediate fundamental interactions.
-  The photon mediates electromagnetism, and the gluons collectively mediate the strong interaction, as described by quantum chromodynamics (QCD).
+  The photon mediates electromagnetism, and the gluons collectively mediate the strong interaction, as described by Quantum Chromodynamics (QCD).
   For historical reasons, the distinct interactions mediated by the W$^+$ and W$^-$, the Z, and the Higgs are all collectively called the weak interaction.
   The bosons of the Standard Model are summarized in Table~\ref{tab:bosons}.
 
@@ -65,8 +67,8 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   The interactions have very different character due to differences in the mediating bosons.
   The photon and electromagnetism are most familiar.
   Electromagnetism is relatively simple, as a result of having only a single-component charge and a single mediating boson, and is relatively easily studied due to its long range, as a consequence of the masslessness of the photon.
-  The weak interaction, by contrast, is less well-known in part due to its very short range, a consequence of the {\it large} masses of the mediating bosons.
-  In addition to the $1/r^2$ behavior familiar from electromagnetism, forces are also suppressed by an exponential term, $e^{-\frac{mc^2}{\hbar c}r}$, where $m$ is the mass of the mediating boson and $\hbar c \approx 200$~GeV-pm.
+  The weak interaction, by contrast, is less well-known in part due to its very short range, a consequence of the large masses of the mediating bosons.
+  In addition to the $1/r^2$ behavior familiar from electromagnetism, forces are also suppressed by an exponential term, $e^{-\frac{mc^2}{\hbar c}r}$, where $m$ is the mass of the mediating boson and $\,\hbar c \approx 200$~GeV-pm.
   This term vanishes for massless bosons like the photon, but since the weak bosons have masses on the order of 100~GeV, the weak interaction becomes negligible after only a few picometers despite having an intrinsic interaction strength comparable to electromagnetism.
   Thus, the weak interaction has an impact only on nuclear and elementary particle physics.
   The strong interaction is also short ranged, with effects becoming significant only on the order of femtometers, but for an entirely different reason.
@@ -112,11 +114,11 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   \renewcommand{\arraystretch}{1}
 
   If each generation were truly independent of the others, then each would be independently stable, as there would be no way to cross from, say, generation 3 to generation 1.
-  However, it is an experimental fact that quarks can decay across generations via their interactions with the W boson, albeit much more slowly than within generations.
+  However, it is an experimental fact that quarks can decay across generations via their interactions with the W boson, albeit much more slowly than within the same generation.
   This is well-accomodated in the Standard Model \cite{cabibbo,ckm}, in which there is no reason in general for the charge eigenstates with respect to any given boson to be equal to those of any other.
   Famously, the Higgs boson is responsible for the masses of the Standard Model's elementary particles, with each particle acquiring a mass proportional to the strength of its interaction with the Higgs.
-  The Higgs interaction eigenstates, being the mass eigenstates, are priviliged as the only charge eigenstates that are also eigenstates of the Hamiltonian, and so are the only states that can actually be produced.
-  The hybrid nature of the physical states with respect to W interactions produces effective generation-crossing interactions for quarks described by the Cabibbo-Kobayashi-Maskawa (CKM) matrix, with values measured experimentally to be approximately \cite{pdg},
+  The Higgs interaction eigenstates, being the mass eigenstates, are privileged as the only charge eigenstates that are also eigenstates of the Hamiltonian, and so are the only states that can be more than transient, the states of so-called ``real'' particles.
+  The hybrid nature of the real states with respect to W interactions produces effective generation-crossing interactions for quarks described by the Cabibbo-Kobayashi-Maskawa (CKM) matrix, with values measured experimentally to be approximately \cite{pdg},
   \begin{equation} \label{eqn:ckm}
     \begin{bmatrix} 
       |V_{ud}| & |V_{us}| & |V_{ub}| \\
@@ -133,16 +135,16 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   where $V_{xy}$ indicates the effective coupling between quarks $x$ and $y$.
   If the eigenstates were exactly equal, the CKM matrix would be diagonal, with $V_{xx} = 1$ and $V_{xy} = 0$ ($x \neq y$), prohibiting trans-generation decays.
   As can be seen in Equation~\ref{eqn:ckm}, the CKM matrix is {\it nearly} diagonal, meaning trans-generation decays are slow but not impossible.
-  This causes the bottom quark to have a longer lifetime than the charm quark despite having a larger mass, because a bottom quark must cross a generation to decay  (the top quark is more massive) using $|V_{ub}| \approx 0.004$ or $|V_{cb}| \approx 0.042$, while a charm quark does not (the strange quark is less massive) and may decay using $|V_{cs}| \approx 0.997$.
+  This causes the third generation bottom quark to have a longer lifetime than the second generation charm quark despite having a larger mass, because a bottom quark must cross a generation to decay  (the top quark is more massive) using $|V_{ub}| \approx 0.004$ or $|V_{cb}| \approx 0.042$, while a charm quark does not (the strange quark, also of the second generation, is less massive) and may decay using $|V_{cs}| \approx 0.997$.
   In fact, the bottom quark lifetime is long enough that bottom hadron decay lengths are macroscopic, on the order of millimeters.
   This is experimentally relevant, as discussed in Section~\ref{sec:btagging}.
   Similar physics is possible for leptons since neutrinos are now known to be massive, but is not incorporated in the Standard Model, in which neutrinos are massless (see Section~\ref{sec:SMproblems}).
 
-  The detailed interactions of the Standard Model are more conveniently discussed using Feynman Diagrams, in the next section.
+  Further description of the Standard Model's interactions is more conveniently done using Feynman Diagrams, in the next section.
 
   \subsection{Feynman Diagrams and Perturbative Expansions} \label{sec:feyndiags}
 
-  The interactions of the Standard Model are expressed as a Langrangian density, of intimidating complexity.
+  The interactions of the Standard Model are expressed as a Langrangian density of intimidating complexity.
   Applying the Euler-Lagrange equations to this Lagrangian produces nonlinear differential equations that have no known exact solutions.
   However, it is possible to extract an approximate solution as a perturbative expansion in powers of the coupling, a parameter that indicates the intrinsic strength of an interaction.
   This procedure at first seems barely feasible, as it is no trivial task to find all the contributions to the leading order term, then the next to leading order term, and so on by simple inspection of the Lagrangian.
@@ -182,7 +184,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   For example, one can rotate Figure~\ref{fig:eegamma} to produce Figure~\ref{fig:eeannihilation}.
   Figure~\ref{fig:eeannihilation} depicts the annihilation of an electron and its antiparticle, the positron, into a photon.
   While this process is allowed by the Standard Model as shown, it is not allowed kinematically, as it is impossible to conserve energy and momentum with only a single massless particle in the final state.
-  To produce the leading order diagram for electron-positron annihilation that is allowed by kinematics, two vertices must be {\it connected} as shown in Figure~\ref{fig:eeannihilation_allowed}, by attaching two identical external lines.
+  To produce the leading order diagram for electron-positron annihilation that is allowed by kinematics, two vertices must be {\it connected} as shown in Figure~\ref{fig:eeannihilation_allowed}, by attaching two identical external lines to form an internal line.
 
   \begin{figure}[h!]
     \centering
@@ -359,7 +361,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
       \end{fmfgraph*}
     \end{fmffile}
 
-    \caption[The vertices of QCD.]{
+    \caption[Some vertices of the weak interaction.]{
       The Standard Model Lagrangian contains terms in which appear (upper) an up-type quark field and down-type quark field once each, and the W field once, (second) a similar diagram with a charged lepton and its associated neutrino replacing the quarks, (third) a fermion field appears twice, and the Z field once, and (lower) a non-neutrino fermion field appears twice, and the Higgs once.
       These are the vertices of the weak interaction that include both fermions and bosons.      
       The weak interaction also includes many boson-only interactions similar to Figure~\ref{fig:qcdvertices} (lower), but these are omitted for brevity.
@@ -376,10 +378,10 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   \subsection{Quantum Chromodynamics, Hadronization, and Jets} \label{sec:hadronization}
 
   Quantum Chromodynamics is the theory of the strong interactions incorporated into the Standard Model, describing the interactions of quarks and gluons.
-  States that are neutral with respect to the strong interactions (``colorless,'' to avoid confusion with electromagnetic neutrality) that are composed of quarks are called hadrons, analogous to atoms of electromagnetism.
+  States composed of quarks that are neutral with respect to the strong interactions (``colorless,'' to avoid confusion with electromagnetic neutrality) are called hadrons, analogous to atoms of electromagnetism.
   There are two distinct ways to create a colorless state, due to the unique 3-component structure of the QCD charge.
   The first is to have a quark and antiquark with +1 and -1 units, respectively, of the same component of the QCD charge.
-  These cancel each other out in fashion similar to a proton and electron in electromagnetism, forming a hadron called a meson.
+  These mutually cancel like a proton and electron in electromagnetism, forming a hadron called a meson.
   The second is to have 3 quarks, each with 1 unit of a different component of the QCD charge, or 3 antiquarks each with -1 unit of a different component.
   This kind of hadron is called a baryon, and there is no electromagnetic analogue to this kind of neutral object.
   The only stable hadron is the proton, the lightest baryon, excepting neutrons bound to protons by the QCD equivalent of dipole forces in atomic nuclei.
@@ -387,7 +389,8 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   
   To understand hadronization and jets, it is necessary to understand a feature of the strong interaction intimately related to why it is short ranged despite having a massless mediator, as was mentioned in the previous sections.
   Unlike the familiar electromagnetism, in which the potential energy associated with two charges decreases as the separation of the changes increases, the QCD potential energy increases without bound as two quarks are separated, roughly linearly proportional to distance \cite{lattice_potential}, as shown in Figure~\ref{fig:QCDpotential}.
-  Eventually, the potential energy stored in the quark system exceeds the rest energy of a new hadron, and it becomes energetically preferable to convert some of the energy stored in the gluon fields into new hadrons, creating a new quark-antiquark pair and resetting the separation distance, than to allow further separation of the quarks.
+  Eventually, the potential energy stored in the quark system exceeds the rest energy of a new hadron.
+  At this threshold, it becomes energetically preferable to convert some of the stored energy into new hadrons, creating a new quark-antiquark pair in order to reset the quark separation distance, than to allow further separation of the quarks.
   As a result, any attempt to separate two quarks cannot ultimately succeed, and all quarks are bound inside colorless hadrons. 
   As gluons {\it also} carry color charge (that is, gluons interact with themselves as shown in Figure~\ref{fig:qcdvertices}), they are similarly confined, and the reach of the strong interaction is limited to only a few femtometers.
 
@@ -409,8 +412,9 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   Unfortunately, while the production of jets is understood qualitatively, it is difficult to predict quantitatively due to yet another peculiar feature of QCD.
   The perturbative expansion described in the previous section is performed in powers of the interaction's coupling, with one factor of the coupling per vertex.
   In order for a truncated perturbation series to be a good approximation, the coupling must be significantly less than 1.
-  Otherwise, diagrams with more vertices are in general more important than diagrams with fewer vertices, and no finite truncation can be accurate.
+  Otherwise, diagrams with more vertices, representing higher order terms in the expansion, are in general more important than diagrams with fewer vertices, and no finite truncation can be accurate.
   Although the QCD coupling is less than 1 at high energy, making the perturbative approach still viable for very high energy collisions, the coupling explodes at low energies, which earns the strong interaction its name.
+  Even at intermediate energies where QCD is technically perturbative, the number of diagrams that must be evaluated for an accurate result is still impractically large.
 
   \begin{figure}[h!]
     \centering
@@ -423,7 +427,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   \end{figure}  
 
   Non-perturbative approaches to QCD exist, including the lattice numerical method used to produce the plot shown in Figure~\ref{fig:QCDpotential}, but they are extremely computationally expensive for even the most simple calculations.
-  It is not feasible to use make non-perturbative calculations of low energy QCD physics from first principles in an environment as complex as high energy hadron collisions.
+  It is not feasible to perform non-perturbative calculations of low energy QCD physics from first principles in an environment as complex as high energy hadron collisions.
   For the hadronization and fragmentation process, heuristic approximations tweaked to match data are used instead, typically the Lund String Model as implemented in the Pythia software package (see Section~\ref{sec:simulation}).
   Additionally, relatively low energy quarks and gluons can be emitted during the collision itself, called Initial State Radiation (ISR).
   A diagram of $u\bar{u} \rightarrow Z \rightarrow e^+e^-$ that includes a single ISR gluon is shown in Figure~\ref{fig:ISRdiag}.
@@ -449,9 +453,9 @@ Modern particle physicists hope to find experimental clues by testing the Standa
     \end{fmffile}
 
     \caption[A Feynamn diagram including an ISR gluon.]{
-      Relatively low energy QCD can lead to the emission of Initial State Radiation as part of the hard collision, in this case $u\bar{u} \rightarrow Z \rightarrow e^+e^-$.
+      Initial State Radiation emitted as part of the hard collision, in this case $u\bar{u} \rightarrow Z \rightarrow e^+e^-$, can be at relatively low energy.
       This gluon will hadronize and add a jet to the event.
-      ISR is difficult to predict accurately due to the intractability of QCD at low energy.
+      QCD ISR is difficult to predict accurately due to the intractability of QCD at low energy.
     }
     \label{fig:ISRdiag}
   \end{figure}  
@@ -464,6 +468,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
 
   Being composite particles bound by QCD, the internal structure of hadrons is rich and difficult to understand quantitatively, due to the impossibility of using perturbation theory at the low energies that prevail in hadrons.
   Of greatest interest is the internal structure of the proton, the only stable hadron.
+
   The proton is often said to be a bound state of two up quarks and one down quark.
   This is true enough---the {\it net} composition of a proton is two up quarks and one down quark---but is an oversimplification.
   The quarks in a proton constantly emit and absorb gluons, which can split to quark-antiquark pairs, which can in turn annihilate back to gluons.
@@ -479,13 +484,14 @@ Modern particle physicists hope to find experimental clues by testing the Standa
     \centering
     \includegraphics[width=0.4\textwidth]{figures/parton_distribution_function.pdf}
     \caption[Proton parton distribution function.]{
-      The measured parton distribution function for a proton at an interaction energy of 100~GeV.
+      The plot shows the measured parton distribution function for a proton at an interaction energy of 100~GeV.
       The horizontal axis $x$ is the fraction of the proton's total momentum, and the vertical axis is the probability distribution.
       The finite thickness of the curves indicates the uncertainty.
-      As one would expect for a proton, $uud$, the probability to collide with an up quark is around twice the probability to collide with a down quark at any energy.
+      As expected for a proton, $uud$, the probability to collide with an up quark is around twice the probability to collide with a down quark at any energy.
       The $v$ subscript on these two curves indicate that these are the ``valence'' quarks, the only quarks that are present as more than transient products of gluon splitting.
       It is much less likely to find an up or down antiquark, and roughly equally likely to find either, because these antiquarks are produced only by gluons splitting to quark-antiquark pairs.
       Since they are also produced only transiently by gluon splitting, the probability to find a heavier quark, namely $s$, $c$, or $b$, is exactly equal to the probability to find a heavy antiquark.
+      Since the heavy quark and antiquark curves overlap, only the quark curves and represent both.
       Quarks aside, notice that the gluon curve (red) has been suppressed by a factor of 10 to fit on the plot.
       To a decent approximation, high energy proton colliders in practice collide gluons.
       Taken from \cite{PDFs}.}
@@ -503,24 +509,25 @@ This section introduces a few of the known problems with the Standard Model.
 
   In Section~\ref{sec:standardmodel}, there is never any mention of gravity as an interaction between particles.
   This is because the Standard Model entirely omits gravity from its description of nature, which means the Standard Model cannot possibly be the final theory.
-  Instead, the Standard Model must be only an {\it effective theory}, a model of nature that applies only below some cutoff energy at which it is replaced by a more fundamental theory.
-  In the case of the Standard Model, this cutoff cannot be any larger than the energy at which gravity becomes relevant in the interactions of elementary particles.
+  Instead, the Standard Model must be only an {\it effective theory}, a low energy approximation of nature that must be replaced by a more fundamental theory at some cutoff energy.
+  In the case of the Standard Model, this cutoff cannot be any larger than the energy at which gravity becomes relevant in the interactions of elementary particles, called the Planck scale.
 
   Unlike the fields of the Standard Model, whose couplings are dimensionless, the gravitational coupling $G$ has dimensions of inverse energy squared.
-  An old effective field theory of the weak interactions developed by Enrico Fermi, which modeled the weak interactions of fermions without mediating bosons, had a similar coupling, $G_F \approx \frac{1}{(100\mathrm{~GeV})^2}$.
-  The energy scale embedded in the couling was a message from the theory, hinting that the theory would need to be replaced by something more fundamental in order to model physics at the scale of around 100~GeV or more.
+  An effective field theory of the weak interactions developed by Enrico Fermi, which models the weak interactions of fermions without mediating bosons, has a similar coupling, $G_F \approx \frac{1}{(100\mathrm{~GeV})^2}$.
+  The energy scale embedded in the couling is a message from nature, hinting that this effective theory must be replaced by something more fundamental in order to model physics at the scale of around 100~GeV or more.
   Nowadays, we recognize this energy as the mass scale of the weak interaction's mediating bosons.
   At interaction energies on the order of 100~GeV or larger, there is enough energy to produce the boson itself as a resonant excitation of the field, a real particle, and the underlying theory is revealed.
-  Making an analogous inference from the gravitational coupling, one obtains the maximum possible cutoff energy for the Standard Model, the so-called Planck Energy of around $10^{19}$~GeV, at which gravity must be incorporated into the quantum theory.
+  Making an analogous inference from the gravitational coupling, one obtains the maximum possible cutoff energy for the Standard Model, the Planck energy of around $10^{19}$~GeV, at which gravity must be incorporated into the quantum theory.
 
   Moreover, the Standard Model becomes self-inconsistent at very high energies, even ignoring the gravity problem \cite{landaupole,higgstriviality}.
   The couplings of both electromagnetism and of the Higgs to itself increase with increasing energy, until eventually diverging at very high energy scales, a theoretical consistency issue called quantum triviality.
-  As a result, the Standard Model's formulation of electromagnetism cannot be used for any energy greater than around $10^{34}$~GeV \cite{laundaupole}.
-  Although this energy is far greater than the Planck energy, at which the Standard Model must fail anyway due to its exclusion of gravity, it is a completely independent indication that the Standard Model must be only a low energy limit of some more fundamental theory that supersedes it at high energy, and does not exhibit these kinds of problems.
+  As a result, the Standard Model's formulation of electromagnetism cannot be used for any energy greater than around $10^{34}$~GeV~\cite{landaupole}.
+  Although this energy is far greater than the Planck energy, at which the Standard Model must fail anyway due to its exclusion of gravity, it is a completely independent indication that the Standard Model must be only a low energy limit of some more fundamental theory that supersedes it at high energy, one that does not exhibit these kinds of problems.
   Even if one supposes that gravity's exclusion from the Standard Model is not actually a problem, that attempting to treat gravity like the other interactions is misguided, the Standard Model still cannot be the final theory.
+
   The Higgs self-interaction similarly diverges above the Planck scale, although had the Higgs mass turned out to be only around 200~GeV rather than the measured 125~GeV, the problem would arise below the Planck scale, and a Higgs mass as small as around 600~GeV would have made the triviality scale only a few TeV, accessible to current experiments \cite{higgstriviality}.
 
-  Thus, there exist known finite energy scales at which the Standard Model {\it must} fail, both due to its exclusion of gravity and internal mathematical consistency issues, and the actual cutoff energy may be much smaller than these upper limits.
+  Thus, there exist known finite energy scales at which the Standard Model {\it must} fail, due both to its exclusion of gravity and to internal mathematical consistency issues, and the actual cutoff energy may be much smaller than these upper limits.
   Every experiment probing an unexplored energy scale has a chance to be the first to observe a hint as to what this more fundamental theory looks like.
 
   \subsection{The Hierarchy Problem} \label{sec:hierarchy}
@@ -532,7 +539,7 @@ This section introduces a few of the known problems with the Standard Model.
   \begin{equation} \label{eqn:higgsmass}
     m_h^2 \approx 2\mu^2 + (\Delta m_h)^2
   \end{equation}
-  where $\mu$ is the so-called bare mass of the Higgs, and $\Delta m_h$ is an adjustment that the Higgs acquires via its interactions with other fields in the Standard Model,
+  where $\mu$ is a free parameter called the bare mass of the Higgs that would most naturally be 0, and $\Delta m_h$ is an adjustment that the Higgs acquires via its interactions with other fields in the Standard Model,
   \begin{equation} \label{eqn:masscorrection}
     \Delta m_h^2 \approx \frac{3}{4\pi^2}\left(\lambda^2 - \lambda_t^2 + \ldots\right)\Lambda^2
   \end{equation}
@@ -551,7 +558,7 @@ This section introduces a few of the known problems with the Standard Model.
 
   Of course, the Standard Model's cutoff need not be the Planck Energy. 
   If $\Lambda$ is only 1000~GeV, then the Hierarchy Problem as stated disappears, and one can expect to discover new physics in elementary particle interactions at this experimentally accessible scale.
-  Still, merely not being the Standard Model is insufficient; the replacement theory also needs to introduce a mechanism to stabilize the Higgs mass.
+  Still, merely not being the Standard Model is insufficient; the replacement theory also needs to introduce a mechanism to stabilize the Higgs mass, lest it make its own contributions or allow the Standard Model fields to continue pushing it to large values.
   By far the most popular proposal for the kind of model that may supersede the Standard Model at the TeV scale is called Supersymmetry, discussed in Section~\ref{sec:SUSY}.
 
   \subsection{Massive Neutrinos} \label{sec:neutrinomasses}
@@ -569,8 +576,8 @@ This section introduces a few of the known problems with the Standard Model.
       0.229 \leftrightarrow 0.516 & 0.438 \leftrightarrow 0.699 & 0.614 \leftrightarrow 0.790 \\
       0.249 \leftrightarrow 0.528 & 0.462 \leftrightarrow 0.715 & 0.595 \leftrightarrow 0.776 
     \end{bmatrix}
-    .
   \end{equation}
+  where each element of the matrix shows the range consistent with experiment.
   Mysteriously, $U_{PMNS}$ is not approximately diagonal, unlike the CKM matrix.
   Nonzero neutrino masses are entirely inconsistent with the Standard Model and, to date, are the only observables measured in laboratories that the Standard Model has failed to predict accurately.
 
@@ -586,11 +593,11 @@ This section introduces a few of the known problems with the Standard Model.
   The best fit is a Universe composed of about 6 times as much ``dark'' matter as visible matter, consistent with the ratio that would explain galactic rotation curves \cite{planckCMB}.
   No modification of gravity has ever been found that can satisfactorily explain both the rotation curve observations, and explain these energy density measurements.
 
-  Observations of the Universe at more recent times finds a few cases of colliding galaxy clusters, most famously the Bullet Cluster, that offer further evidence for the existence of dark matter.
+  Observations of the Universe at more recent times have found a few cases of colliding galaxy clusters, most famously the Bullet Cluster, that offer further evidence for the existence of dark matter.
   In galaxy cluster collisions, the luminous matter can collide and produce a very hot plasma due to its relatively strong interactions, while dark matter continues on unaffected.
   The luminous matter can be accounted for directly via the emissions of the hot plasma, while the location of the mass, visible or not, can be measured by observing the gravitational lensing of the light of more distant galaxies by the foreground colliding clusters \cite{bulletcluster}.
-  The astonishing result of this analysis for the Bullet Cluster is shown in Figure~\ref{fig:bulletcluster}.
-  The visible matter, revealed by its x-ray emissions, is caught in the collision point at the center, while the majority of the gravitating matter has continued on unaffected, and is detectable only through its powerful gravitational lensing on either side of the luminous plasma.
+  The result of this analysis for the Bullet Cluster is shown in Figure~\ref{fig:bulletcluster}.
+  The visible matter, revealed by its x-ray emissions, is caught in the collision zone at the center, while the majority of the gravitating matter has continued on unaffected, and is detectable only through its powerful gravitational lensing on either side of the luminous plasma.
   The inferred ratio of dark matter and visible matter is consistent with the amount that would explain both rotation curves and the energy densities measured using the CMB.
   Again, no modification to gravity has been found that can simultaneously explain galactic rotation curves and the energy density measurements from the CMB, and also the gravitational lensing observed in the Bullet Cluster and similar collisions.
   \begin{figure}[h!]
@@ -605,7 +612,7 @@ This section introduces a few of the known problems with the Standard Model.
 
   Finally, astronomers have recently identified a few small galaxies that appear to contain little or no dark matter \cite{zeroDMgalaxy}.
   While this is an extraordinarily rare occurrence and effectively impossible in a large galaxy like the Milky Way, small galaxies are subject to larger statistical fluctuations, and the Universe has a rather large sample size of galaxies.
-  It is difficult to imagine a modification of gravity that could, in some situations, cause there to appear to be around 6 times are much invisible mass in the Universe as visible mass, but in some small galaxies appear as if there is no modification at all.
+  It is difficult to imagine a modification of gravity that could, in most observations, cause there to appear to be around 6 times are much invisible mass in the Universe as visible mass, but in some small galaxies appear as if there is no modification at all.
 
   If dark matter is not composed of a weakly interacting particle beyond the Standard Model, the only remaining possibility is that it is composed of larger non-radiating masses like rogue planets or black holes produced in the high-density primordial Universe and surviving to the present day.
   This possibility is taken seriously, and can be investigated by searching for small microlensing events, where the light of a distant star is briefly gravitationally lensed when one of these bodies passes between an Earth-based telescope and the star.
@@ -620,8 +627,9 @@ This section introduces a few of the known problems with the Standard Model.
   There is especially strong hope for detecting particle dark matter at the TeV scale, due to a suggestive coincidence called the Weakly Interacting Massive Particle (WIMP) Miracle.
   The characteristic energy scale of the weak interaction is $\sim100$~GeV.
   A hypothetical particle with mass in the suitable range, on the order of 1 to 10,000 GeV, interacting via the Standard Model's weak interaction or a similar interaction, would have been produced in the early Universe and survived to the present day at the proper density to account for the observed cold dark matter \cite{WIMPmiracle}.
+  Furthermore, it would be an astonishing coincidence if the dark matter particle is only distantly related to the Standard Model, perhaps only by gravitational interactions, and yet somehow by dumb luck ended up with a relic mass density on the same order of magnitude as that of the Standard Model particles.
   Viewed in light of indications that new physics ought to be found at the TeV scale from the Hierarchy Problem and other issues with the Standard Model, the case for particle dark matter at the TeV scale is compelling.
-  The only argument against WIMPs is that they have not yet been observed in experiments despite concentrated efforts, yet much of the parameter space remains untouched.
+  The chief argument against WIMPs is that they have not yet been observed in experiments despite concentrated efforts, yet much of the parameter space remains untouched.
   It is a high priority of current experiments to extend sensitivity into these regions.
 
 \section{Supersymmetry} \label{sec:SUSY}
@@ -637,22 +645,22 @@ This section introduces some of the theoretical reasons for the popularity of su
   \subsection{Theoretical Appeal} \label{sec:SUSYappeal}
 
   A full discussion of the theoretical appeal of supersymmetry is beyond the scope of this thesis, so this section briefly discusses only a pair of the most compelling points that are most closely connected to why supersymmetry at the TeV scale is of great interest.
-  First, supersymmetry provides a well-motivated dark matter candidate, a concrete realization of the WIMP miracle.
+  First, supersymmetry provides a well-motivated dark matter candidate, a concrete realization of the WIMP Miracle.
   Second, it resolves the Hierarchy Problem and is almost certainly the only solution that possibly can; if supersymmetry is not realized at the TeV scale, it likely means that the Standard Model's fine tuning has somehow been misinterpreted and is not in fact a problem.
 
   Supersymmetry's dark matter candidate arises as a side effect of a solution to an unrelated problem.
   Naive implementations of supersymmetry make possible the decay $p \rightarrow \pi^0~e^+$ via mediation by a squark (the pion is the lightest meson and the only hadron lighter than the proton).
-  The proton would be highly unstable for any reasonable squark mass, in conflict with the lower limit on this decay mode of some $10^{32}$ years, and the any-mode limit of more than $10^{29}$ years \cite{PDG}.
+  The proton would be highly unstable for any reasonable squark mass, in conflict with the lower limit on this decay mode of some $10^{32}$ years, and the any-mode limit of more than $10^{29}$ years \cite{pdg}.
   However, it is possible to have a stable proton within supersymmetric models, by proposing that there exists a conserved multiplicative quantum number called R-parity and assigning superpartners odd R-parity and Standard Model particles even R-parity.
-  This saves the proton, but as a side effect also makes the lightest supersymmetric particle (LSP) stable, since decays to final states including other superpartners are kinematically impossible and decays to final states containing only Standard Model particles cannot conserve R-parity \cite{PDG}.
+  This saves the proton, but as a side effect also makes the lightest supersymmetric particle (LSP) stable, since decays to final states including other superpartners are kinematically impossible and decays to final states containing only Standard Model particles cannot conserve R-parity \cite{pdg}.
 
   At first, LSP stability appears to be a problem as severe as proton decay.
-  If the LSP is stable, then there should be a large relic population descending from the primordial plasma, in fact this relic population may represent the majority of the mass of the Universe, but no such population has ever been observed.
-  However, astrophysical observations have assembled a compelling case that a majority of the mass of the Universe is WIMPs, making it possible that stable LSPs {\it have} been observed, via their gravitational interactions.
+  If the LSP is stable, then there should be a large relic population persisting from the primordial plasma, indeed this relic population may represent the majority of the mass of the Universe, but no such population has ever been observed.
+  However, astrophysical observations have assembled a compelling case that a majority of the mass of the Universe is not of the Standard Model, making it possible that stable LSPs {\it have} been observed, as dark matter, via their gravitational interactions.
   Of course, this position is only tenable if one of the superpartners has the properties necessary to be a dark matter candidate.
   The superpartners of neutrinos, the sneutrinos, are an obvious first guess, but their interaction cross sections are too large in generic implementations of supersymmetry, so that a sneutrino LSP requires a special purpose-built model to be viable \cite{sneutrinos}.
   Fortunately, the neutral superpartners of the weak bosons, the neutralinos, could have even smaller interaction cross sections than sneutrinos, and are ideal dark matter candidates.
-  Moreover, as part of supersymmetry's solution to the Hierarchy Problem, the neutralinos in general and especially the higgsino are constrained to be relatively light \cite{AMSB, SUSYnaturalness, naturalWIMP}, making a neutralino LSP plausible on more than phenomenological grounds.
+  Moreover, as part of supersymmetry's solution to the Hierarchy Problem, the neutralinos in general and especially the higgsino are constrained to be relatively light \cite{distracksAMSB, SUSYnaturalness, naturalWIMP}, making a neutralino LSP plausible on more than phenomenological grounds.
 
   The supersymmetric solution to the Hierarchy Problem is founded on a simple observation.
   In Equation~\ref{eqn:masscorrection}, the Higgs' coupling to itself, a boson, and to the top quark, a fermion, appear with opposite signs.
@@ -660,19 +668,18 @@ This section introduces some of the theoretical reasons for the popularity of su
   Among the Standard Model fields, this is not very helpful, since the top quark simply dominates the other fields.
   But, if every boson had a fermion counterpart with exactly the same properties and vice versa, all contributions to Equation~\ref{eqn:masscorrection} would exactly cancel.
   Of course, experiments have long excluded the existence of, say, a selectron of the same mass and interactions as the electron, so supersymmetry must be spontaneously broken if it exists, with the superpartners pushed to a higher mass scale.
-  A variety well-motivated mechanisms for this have been proposed \cite{GMSB,AMSB}.
-  Whatever the mechanism, the scale of supersymmetry breaking would lead directly to the observed Higgs mass, implying that superpartners and especially the higgsino should begin to appear at energies not far beyond the observed Higgs mass \cite{AMSB,GMSB,SUSYnaturalness,naturalWIMP}.
+  A variety of well-motivated mechanisms for this have been proposed \cite{GMSB_theory,distracksAMSB}.
+  Whatever the mechanism, the scale of supersymmetry breaking would lead directly to the observed Higgs mass, implying that superpartners and especially the higgsino should begin to appear at energies not far beyond the observed Higgs mass \cite{distracksAMSB,GMSB_theory,SUSYnaturalness,naturalWIMP}.
 
   \subsection{Experimental Signatures} \label{sec:SUSYexp}
 
   Since every supersymmetric particle must decay to the nearly undetectable LSP, the primary signature of superpartner production in colliders is large missing energy and momentum, carried away by the undetectable LSP.
   Additionally, conservation of R-parity requires that superpartners be produced in pairs, so that these events are characterized by {\it two} heavy invisible particles.
   As experimental constraints on the visible superpartner masses increase, the likelihood that the decays are extremely energetic also increases.
-  Two particles with masses of perhaps 2~TeV would be produced only rarely, but their events would be extraordinarily high energy, unless the LSP mass is also large and absorbs most of the decay energy.
-
+  Two particles with large masses of perhaps 2~TeV would be produced only rarely in state of the art accelerators, but their events would be extraordinarily high energy, unless the LSP mass is also large and absorbs most of the decay energy.
 
   By definition, the LSP is the most energetically accessible superpartner.
-  Even so, the preferred supersymmetry search strategy is to use the invisibility of the LSP to identify decay chains of more massive but more strongly interacting superpartners, as the LSP itself must be very weakly interacting, and therefore have a very low production rate, if it exists.
+  Even so, the preferred supersymmetry search strategy is to use the invisibility of the LSP to identify decay chains of more massive but more strongly interacting superpartners, as the LSP itself must  have a very low production rate due to its weak interaction cross section, if it exists.
   At hadron colliders, the best candidate superpartners are those participating in the strong interactions, squarks and gluinos, due to the relatively large production cross sections for strongly interacting particles (see Figure~\ref{fig:SUSYxsec}). 
   Unfortunately, while the mass of the LSP is restricted to a relatively low value if supersymmetry is to solve the Hierarchy Problem, the masses of other superpartners are not as strongly constrained.
   Attempts to observe the LSP in decays of more easily produced superpartners require that these intermediate states have accessible masses, which is not necessarily the case for any experiment to date \cite{SUSYnaturalness,naturalWIMP}.
@@ -703,8 +710,8 @@ Compare Figure 5 (upper) from \cite{SUSYxsecs}, of which this is a simplified re
 
 \section{Other Models} \label{sec:othermodels}
 
-While supersymmetry is of greatest interest and so drives the design of many searches for new physics, it shares its primary signatures with some other hypothetical extensions of the Standard Model.
-Two are worth special mention, since they are considered by the analysis discussed in Section~\ref{sec:MT2classic}.
+While supersymmetry is generally of greatest interest and so drives the design of many searches for new physics, it shares its primary signatures with some other hypothetical extensions of the Standard Model.
+Two are worth special mention, since they are considered explicitly by the analysis discussed in Section~\ref{sec:MT2classic}.
 
 Some models propose the existence of ``leptoquarks,'' strongly-interacting bosons that have vertices in which one fermion is a lepton and one is a quark, with one example shown in Figure~\ref{fig:LQvertex}.
 These models have recently attracted some interest due to their ability to explain some minor anomalies in a few rare meson decays \cite{LQhunter,minorBanomaly,Banomaly}.
@@ -731,10 +738,10 @@ Therefore, searches for squarks decaying to LSPs can easily be reinterpreted as 
 \end{figure}  
 
 
-Another empirical model, this time motivated by a small excess in events with large missing energy and relatively low energy, proposes a generic strongly-interacting scalar $\phi$ mediating Standard Model interactions with a fermionic dark matter candidate $\psi$ \cite{monophi} as shown in Figure~\ref{fig:monophidiag}, with parameters tuned to match the minor observed anomaly.
+A second model, this time motivated by a small excess in events with large missing energy and relatively low energy, proposes a generic strongly-interacting scalar $\phi$ mediating Standard Model interactions with a fermionic dark matter candidate $\psi$ \cite{monophi} as shown in Figure~\ref{fig:monophidiag}, with parameters tuned to match the minor observed anomaly.
 This model need not involve pair-production and could in principle have a smaller mass scale than supersymmetry, and so can produce events with lower energy and lower numbers of hadronic jets than would be typical for supersymmetric models.
 While not nearly as well-motivated theoretically as supersymmetry, it provides a framework for analyzing anomalies in relatively low activity kinematic regions that superpartner pair-production events cannot easily populate.
 
-In general, while supersymmetry drives the design of many searches for new physics, the signatures of supersymmetry are in practice very general, and searches nominally targeting supersymmetry are in practice sensitive to a wide variety of models of new physics.
+In general, while supersymmetry drives the design of many searches for new physics, the signatures of supersymmetry are in practice very general, so that searches nominally targeting supersymmetry are in practice sensitive to a wide variety of models of new physics.
 Supersymmetric models are used as a benchmark means of communicating results that is familiar throughout the elementary particle physics community.
 Ultimately, the focus of experiments is on providing evidence to support or refute any potential explanations of observations that conflict with the Standard Model prediction.
