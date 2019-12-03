@@ -14,7 +14,7 @@ This section provides a summary of the essential information.
   \subsection{A Brief Description} \label{sec:LHCdescription}
 
   Although it sometimes collides atomic nuclei, typically Pb-208, the LHC is primarily a proton-proton collider, and that is the operational mode considered in this work.
-  The LHC is the highest energy and highest luminosity proton-proton collider ever constructed, thus far achieving collisions with center of momentum frame energy as large as 13~TeV, produced by two counterrotating beams of 6.5~TeV protons, at sustained rates on the order of one billion collisions per second.
+  The LHC is the highest energy and highest luminosity proton-proton collider ever constructed, thus far achieving collisions with center of momentum frame energy as large as 13~TeV, produced by two counter-rotating beams of 6.5~TeV protons, at sustained rates on the order of one billion collisions per second.
 
   Producing such high energy collisions at such high intensity requires that the LHC be a large ring, 27~km in circumference.
   The circular shape allows multiple opportunities for the protons in each beam to collide, rather than a single all-or-nothing pass, and additionally allows the beams to be circulated for as long as necessary to accelerate them up to the intended energy, at a rate of 0.5~MeV per revolution.
@@ -27,7 +27,7 @@ This section provides a summary of the essential information.
   Protons are chosen for the beams rather than electrons, the only other obvious potential choice, for two reasons.
   First, protons are composite particles, so their total energies are distributed among their many subcomponents, referred to as partons in this context (see Section~\ref{sec:PDFs}).
   Collisions between protons with energy 6.5~TeV each are in fact collisions between a parton in each proton with some fraction of the total energy.
-  This naturally scans across the accessible energy range, providing sensivity to any new state with mass on the TeV scale.
+  This naturally scans across the accessible energy range, providing sensitivity to any new state with mass on the TeV scale.
   Were the beams composed of elementary particles like electrons, the collider would need to scan the beam energy to provide sensitivity to any possible mass.
   Therefore, electron colliders are poorly suited for new discoveries compared to proton colliders, and better suited for studying a state with known mass in greater detail.
   Second, and more importantly, the mass of the proton is much greater than that of the electron, reducing energy losses to synchrotron radiation.
@@ -148,7 +148,7 @@ This section provides a summary of the essential information.
   Each event produces an intimidating array of these discrete hits throughout the tracker, which must then be connected by the track reconstruction algorithm into particle tracks, each consisting of at least three distinct hits.
   CMS uses an iterative procedure described in Reference~\cite{cmstracking}, in which clean, high energy, isolated tracks are reconstructed first so that their hits may be removed from the pool, followed by the next most obvious tracks, and so on, dramatically simplifying the computational complexity of each step.
   The early iterations that produce the tracks judged to be of highest quality find only those tracks with transverse momenta at least 0.3~GeV, and no iteration can produce a track with transverse momentum below 0.1~GeV, so that particles of such low energy are effectively invisible to CMS.
-  Note that, due to the strong magnetic field present in the tracker, charged particles with energies lower than around 0.1 GeV travel in such tight spirals that reconstruction becomes infeasible.
+  Note that, due to the strong magnetic field present in the tracker, charged particles with energies lower than around 0.1 GeV travel in such tight spirals that reconstruction becomes unfeasible.
   Although this is normally insignificant, since these particles are not typically important to an event's overall characterization, this fact allows for the existence of disappearing tracks, in which a high energy charged particle decays to a trackless neutral particle and a charged particle of such low energy that it is not reconstructed.
 
   The performance is outstanding, especially for tracks passing the sophisticated ``high purity'' selection applied by the vast majority of CMS analyses. 
@@ -302,7 +302,7 @@ This section provides a summary of the essential information.
   Unfortunately, it is not immune to radiation damage, and so the performance of the ECAL degrades over time.
   By the end of data taking in 2018, roughly 20\% of ECAL cells no longer consistently detected showers of photons and electrons.
   This leads to a background for the disappearing tracks search in Section~\ref{sec:distracks} consisting of electrons that transform to photons inside the tracker, no longer leaving a track, but are not later detected as photons in the ECAL.
-  Fortunately, 80\% of the ECAL is still performing well despites years of high radiation flux, so this background can be almost entirely rejected by mapping and vetoing the poorly performing cells, using events in which a Z boson decayed to a pair of electrons, exactly one of which is lost due to this effect, as described in Section~\ref{sec:distracks}.
+  Fortunately, 80\% of the ECAL is still performing well despite years of high radiation flux, so this background can be almost entirely rejected by mapping and vetoing the poorly performing cells, using events in which a Z boson decayed to a pair of electrons, exactly one of which is lost due to this effect, as described in Section~\ref{sec:distracks}.
 
   \subsection{Hadronic Calorimeter} \label{sec:hcal}
 
@@ -465,7 +465,7 @@ This section will describe only some of the most essential pieces that have not 
     For instance, the electron energy resolution of the Level-1 reconstruction is shown in Figure~\ref{fig:L1res} (left), along with the resulting trigger turn-on curve (right).
     To avoid the need to simulate this trigger turn on, analyses typically select only events sufficiently distinctive that they are accepted by the trigger with 100\% efficiency.
 
-    Events passing the Level-1 trigger are subjected to a more careful analysis by the High Level trigger (HLT), implemented in software on standard servers.
+    Events passing the Level-1 trigger are subjected to a more careful analysis by the High Level Trigger (HLT), implemented in software on standard servers.
     With 13,000 machines working in parallel, the HLT is allotted 90~ms per event, enough time for reconstruction of the portion of the event identified by the Level-1 trigger as interesting at near offline quality.
     One event in 1000 considered by the HLT is sufficiently spectacular to qualify to be written to disk, and these constitute the CMS dataset available for final offline analysis.
 
@@ -539,7 +539,7 @@ This section will describe only some of the most essential pieces that have not 
 
 
   This approach can allow PF to reject fakes or badly mismeasured particles.
-  For instance, PF rejects tracks that do not extrapolate to significant calorimeter desposits, indicating that they are neither electrons nor hadrons, and also do not have a corresponding track in the muon chamber.
+  For instance, PF rejects tracks that do not extrapolate to significant calorimeter deposits, indicating that they are neither electrons nor hadrons, and also do not have a corresponding track in the muon chamber.
   In most cases, PF is correct to reject these tracks, which are almost assuredly fakes.
   In rare cases, the track is of such high quality that it passes the ``high purity'' selection described in Section~\ref{sec:tracker}, indicating that the tracker is highly unlikely to have made an error.
   These are called ``Lost Tracks,'' and are the foundational object for the track selection used in the Section~\ref{sec:distracks} disappearing tracks analysis.
