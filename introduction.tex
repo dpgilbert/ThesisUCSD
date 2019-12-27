@@ -384,7 +384,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   These mutually cancel like a proton and electron in electromagnetism, forming a hadron called a meson.
   The second is to have 3 quarks, each with 1 unit of a different component of the QCD charge, or 3 antiquarks each with -1 unit of a different component.
   This kind of hadron is called a baryon, and there is no electromagnetic analogue to this kind of neutral object.
-  The only stable hadron is the proton, the lightest baryon, excepting neutrons bound to protons by the QCD equivalent of dipole forces in atomic nuclei.
+  The only (observationally) stable hadron is the proton, the lightest baryon, excepting neutrons bound to protons by the QCD equivalent of dipole forces in atomic nuclei.
   The formation of hadrons is called hadronization, and the hadronization process after a high energy collision tends to produce objects called jets that are important in experiments.
   
   To understand hadronization and jets, it is necessary to understand a feature of the strong interaction intimately related to why it is short ranged despite having a massless mediator, as was mentioned in the previous sections.
@@ -426,7 +426,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
     \label{fig:QCDcoupling}
   \end{figure}  
 
-  Non-perturbative approaches to QCD exist, including the lattice numerical method used to produce the plot shown in Figure~\ref{fig:QCDpotential}, but they are extremely computationally expensive for even the most simple calculations.
+  Non-perturbative approaches to QCD exist, including the lattice numerical method used to produce the plot shown in Figure~\ref{fig:QCDpotential}, but they are extremely computationally expensive for even the most simple systems.
   It is not feasible to perform non-perturbative calculations of low energy QCD physics from first principles in an environment as complex as high energy hadron collisions.
   For the hadronization and fragmentation process, heuristic approximations tweaked to match data are used instead, typically the Lund String Model as implemented in the Pythia software package (see Section~\ref{sec:simulation}).
   Additionally, relatively low energy quarks and gluons can be emitted during the collision itself, called Initial State Radiation (ISR).
@@ -491,7 +491,7 @@ Modern particle physicists hope to find experimental clues by testing the Standa
       The $v$ subscript on these two curves indicate that these are the ``valence'' quarks, the only quarks that are present as more than transient products of gluon splitting.
       It is much less likely to find an up or down antiquark, and roughly equally likely to find either, because these antiquarks are produced only by gluons splitting to quark-antiquark pairs.
       Since they are also produced only transiently by gluon splitting, the probability to find a heavier quark, namely $s$, $c$, or $b$, is exactly equal to the probability to find a heavy antiquark.
-      Since the heavy quark and antiquark curves overlap, only the quark curves and represent both.
+      Since the heavy quark and antiquark curves overlap, only the quark curves are shown and represent both.
       Quarks aside, notice that the gluon curve (red) has been suppressed by a factor of 10 to fit on the plot.
       To a decent approximation, high energy proton colliders in practice collide gluons.
       Taken from \cite{PDFs}.}
@@ -521,6 +521,7 @@ This section introduces a few of the known problems with the Standard Model.
 
   Moreover, the Standard Model becomes self-inconsistent at very high energies, even ignoring the gravity problem \cite{landaupole,higgstriviality}.
   The couplings of both electromagnetism and of the Higgs to itself increase with increasing energy, until eventually diverging at very high energy scales, a theoretical consistency issue called quantum triviality.
+
   As a result, the Standard Model's formulation of electromagnetism cannot be used for any energy greater than around $10^{34}$~GeV~\cite{landaupole}.
   Although this energy is far greater than the Planck energy, at which the Standard Model must fail anyway due to its exclusion of gravity, it is a completely independent indication that the Standard Model must be only a low energy limit of some more fundamental theory that supersedes it at high energy, one that does not exhibit these kinds of problems.
   Even if one supposes that gravity's exclusion from the Standard Model is not actually a problem, that attempting to treat gravity like the other interactions is misguided, the Standard Model still cannot be the final theory.
@@ -539,7 +540,7 @@ This section introduces a few of the known problems with the Standard Model.
   \begin{equation} \label{eqn:higgsmass}
     m_h^2 \approx 2\mu^2 + (\Delta m_h)^2
   \end{equation}
-  where $\mu$ is a free parameter called the bare mass of the Higgs that would most naturally be 0, and $\Delta m_h$ is an adjustment that the Higgs acquires via its interactions with other fields in the Standard Model,
+  where $\mu$ is a free parameter called the bare mass of the Higgs, and $\Delta m_h$ is an adjustment that the Higgs acquires via its interactions with other fields in the Standard Model,
   \begin{equation} \label{eqn:masscorrection}
     \Delta m_h^2 \approx \frac{3}{4\pi^2}\left(\lambda^2 - \lambda_t^2 + \ldots\right)\Lambda^2
   \end{equation}
@@ -552,14 +553,14 @@ This section introduces a few of the known problems with the Standard Model.
     (125)^2 \approx 2\mu^2 - (10^{19})^2.
   \end{equation}
   The Higgs mass of 125~GeV emerges from almost perfect cancellation of two terms with values around $10^{19}$~GeV.
-  A model that produces an output of a very different order of magnitude from the generating input is said to be finely tuned.
+  A model that produces an output of a very different order of magnitude from the inputs is said to be finely tuned.
   The Standard Model, epitomized by the Higgs mass, is {\it egregiously} finely tuned.
   This is the Hierarchy Problem.
 
   Of course, the Standard Model's cutoff need not be the Planck Energy. 
   If $\Lambda$ is only 1000~GeV, then the Hierarchy Problem as stated disappears, and one can expect to discover new physics in elementary particle interactions at this experimentally accessible scale.
   Still, merely not being the Standard Model is insufficient; the replacement theory also needs to introduce a mechanism to stabilize the Higgs mass, lest it make its own contributions or allow the Standard Model fields to continue pushing it to large values.
-  By far the most popular proposal for the kind of model that may supersede the Standard Model at the TeV scale is called Supersymmetry, discussed in Section~\ref{sec:SUSY}.
+  By far the most popular proposal for such a replacement is a supersymmetric extension to the Standard Model, discussed in Section~\ref{sec:SUSY}.
 
   \subsection{Massive Neutrinos} \label{sec:neutrinomasses}
 
@@ -591,7 +592,7 @@ This section introduces a few of the known problems with the Standard Model.
 
   Observation of the Cosmic Microwave Background (CMB) has allowed for measurement of the Universe's energy density, and the forms taken by that energy density.
   The best fit is a Universe composed of about 6 times as much ``dark'' matter as visible matter, consistent with the ratio that would explain galactic rotation curves \cite{planckCMB}.
-  No modification of gravity has ever been found that can satisfactorily explain both the rotation curve observations, and explain these energy density measurements.
+  No modification of gravity has ever been found that can satisfactorily explain both the rotation curve observations, and these energy density measurements.
 
   Observations of the Universe at more recent times have found a few cases of colliding galaxy clusters, most famously the Bullet Cluster, that offer further evidence for the existence of dark matter.
   In galaxy cluster collisions, the luminous matter can collide and produce a very hot plasma due to its relatively strong interactions, while dark matter continues on unaffected.
@@ -617,7 +618,7 @@ This section introduces a few of the known problems with the Standard Model.
   If dark matter is not composed of a weakly interacting particle beyond the Standard Model, the only remaining possibility is that it is composed of larger non-radiating masses like rogue planets or black holes produced in the high-density primordial Universe and surviving to the present day.
   This possibility is taken seriously, and can be investigated by searching for small microlensing events, where the light of a distant star is briefly gravitationally lensed when one of these bodies passes between an Earth-based telescope and the star.
   As there is around 6 times as much dark mass as visible in the galaxy, such an event should be relatively common.
-  No excess of such events is observed in microlensing and complementary searches, so that if all dark matter has exactly the same mass, it cannot have any mass in the range $10^{-7}M_{\mathrm{Sun}} < M_{DM} < 10^5 M_{\mathrm{Sun}}$ \cite{primordialBH_dist}.
+  No excess of such events is observed in microlensing and complementary searches, so that if all dark matter has exactly the same mass, it cannot have any mass in the range $10^{-7}~\mathrm{M}_{\mathrm{Sun}} < \mathrm{M}_{\mathrm{DM}} < 10^5~\mathrm{M}_{\mathrm{Sun}}$ \cite{primordialBH_dist}.
   This leaves open the possibility that dark matter could be composed of black holes of small mass, with Schwarzschild radius around 0.1~mm or less, or that it could be composed of bodies with a range of masses.
   However, both possibilities are disfavored.
   It is suspected that small primordial black holes would generically be captured by stars, eventually migrate to the core as the star dies, and destroy the compact remnant via accretion \cite{primordialBH}, but no such events are observed.
@@ -625,12 +626,12 @@ This section introduces a few of the known problems with the Standard Model.
   Particle dark matter, despite its own history of non-observation, remains the possibility most easily reconciled with the data.
 
   There is especially strong hope for detecting particle dark matter at the TeV scale, due to a suggestive coincidence called the Weakly Interacting Massive Particle (WIMP) Miracle.
-  The characteristic energy scale of the weak interaction is $\sim100$~GeV.
+  The characteristic energy scale of the weak interaction is $\sim$100~GeV.
   A hypothetical particle with mass in the suitable range, on the order of 1 to 10,000 GeV, interacting via the Standard Model's weak interaction or a similar interaction, would have been produced in the early Universe and survived to the present day at the proper density to account for the observed cold dark matter \cite{WIMPmiracle}.
   Furthermore, it would be an astonishing coincidence if the dark matter particle is only distantly related to the Standard Model, perhaps only by gravitational interactions, and yet somehow by dumb luck ended up with a relic mass density on the same order of magnitude as that of the Standard Model particles.
   Viewed in light of indications that new physics ought to be found at the TeV scale from the Hierarchy Problem and other issues with the Standard Model, the case for particle dark matter at the TeV scale is compelling.
-  The chief argument against WIMPs is that they have not yet been observed in experiments despite concentrated efforts, yet much of the parameter space remains untouched.
-  It is a high priority of current experiments to extend sensitivity into these regions.
+  The chief argument against WIMPs is that they have not yet been observed in experiments despite significant efforts, with some of the more stringent general constraints produced by the XENON1T experiment \cite{xenon1t}, yet some of the parameter space remains viable.
+  It is a high priority of current experiments to extend sensitivity into these regions, and either discover or exclude WIMP dark matter.
 
 \section{Supersymmetry} \label{sec:SUSY}
 
