@@ -45,7 +45,7 @@ This section provides a summary of the essential information.
 
     \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.65\textwidth]{figures/efficiencyVsPt.pdf}
+    \includegraphics[width=0.65\textwidth]{figures/int_lumi_allcumulative_pp.pdf}
     \caption[CMS integrated luminosity delivered and recorded over time.]{
       The integrated luminosity delivered to CMS over time by the LHC, in blue, and the portion CMS managed to record, in yellow.
       As can be seen, CMS is not 100\% efficient at recording collisions. 
@@ -257,7 +257,7 @@ This section provides a summary of the essential information.
     \centering
     \includegraphics[width=0.85\textwidth]{figures/PionSurvivalProbability.pdf}
     \caption[Pion survival in the tracker.]{
-      The probability for pions to undergo nuclear interactions in the CMS tracker by layer, in the configuration used in 2016 and earlier. 
+      The probability for pions not to have undergone a nuclear interaction in the CMS tracker by layer, in the configuration used in 2016 and earlier. 
       In rare cases, the pion may shower in such a way that no charged daughters have high enough energy to be reconstructed, causing its track to disappear.
       Taken from \cite{cmstracking}.}
     \label{fig:pionsurvival}
@@ -631,3 +631,21 @@ This section will describe only some of the most essential pieces that have not 
               Taken from \cite{MT2_2019}.}
     \label{fig:lepmt2}
   \end{figure}  
+
+\section{Acknowledgements}
+
+This chapter provided an overview of the operation of the LHC and the CMS experiment. 
+Many of the figures that appeared were produced by co-authors within the CMS collaboration.
+Without their efforts, the operations of the LHC and CMS would be impossible, and the analyses presented in the next chapter could not have been performend.
+
+Figures~\ref{fig:intlumi} and \ref{fig:pileup} show the CMS integrated luminosity and pileup distribution in 2018, respectively, as measured by the CMS Luminosity Physics Object Group (POG) \cite{lumipublic}.
+
+Figures~\ref{fig:cmsreconstruction} and \ref{fig:PFimprovement} respectively show the typical experimental signatures of the particles measured by CMS, and the improvement in electron identication efficiency achieved by the CMS Particle Flow reconstruction algorithm compared to approaches that do not integrate all available detector information, produced as part of the documentation of that algorithm \cite{particleflow}.
+
+Figures~\ref{fig:trackerlayout}--\ref{fig:16vs17}, \ref{fig:trackerbudget}, and \ref{fig:pionsurvival} show the layout of the Phase 0 (2016 and earlier) CMS tracker, the hit efficiency, the track fake rate, track reconstruction efficiency, track impact parameter resolution, comparisons of the efficiency and fake rate in the Phase 0 and Phase 1 tracker, the tracker material budget in terms of radiation lengths and interaction lengths, and the pion survival rate, respectively, as prepared by the CMS Tracking POG \cite{cmstracking}.
+
+Figure~\ref{fig:btageff} shows the b-tagging efficiency of various algorithms used at CMS, as measured by the CMS B-Tagging and Vertexing POG \cite{btagging}.
+
+Figure~\ref{fig:L1res} shows the Level-1 reconstruction's electron energy resolution and the associated electron trigger turn-on curve prepared by the CMS Trigger and Data Acquisition group \cite{trigger}.
+
+Finally, Figure~\ref{fig:lepmt2} was produced by Bennett Marsh, who has been an invaluable co-author of the analyses presented in the next chapter.

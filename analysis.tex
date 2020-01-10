@@ -397,15 +397,17 @@ Taken from \cite{MT2_2019}.}
     \begin{tabular}{c c l}
       Observable               & Selection   & Notes \\
       \hline
-      \mttwo                   & $> 200$~GeV & Only for multijet events. Increased to $\mttwo > 400$~GeV for $\Ht > 1500$~GeV to maintain QCD suppression. \\
+      \mttwo                   & $> 200$~GeV & Only for multijet events. Increased to $\mttwo > 400$~GeV for $\Ht > 1500$~GeV \\
+                                             & & to maintain QCD suppression. \\
       $\pt^{\mathrm{Jet 1}}$   & $> 250$~GeV & Only for monojet events. \\
-      \Ht                      & $> 250$~GeV & Motivated by available triggers. Background events at lower \Ht are too common for these events to be always recorded. \\
+      \Ht                      & $> 250$~GeV & Motivated by available triggers. Background events at lower \Ht are too \\
+                                             & & common for these events to be always recorded. \\
       \met                     & $> 250$~GeV & Relaxed to $\met > 30$~GeV for $\Ht > 1200$~GeV. Motivated by available triggers. \\
       \dphimin                 & $> 0.3$     & Auxiliary mismeasurement suppression. \\
       $\left|\vec{\HTm} - \vec{\met}\right|/\met$ & $< 0.5$ & Auxiliary mismeasurement suppression. \\
       \nlep                    & $= 0$       & The lepton veto; rejects the majority of $W^{\pm}\rightarrow\ell^{\pm}\nu$ background. \\
     \end{tabular}
-    \caption[Summary table of baseline event selection.]{A summary of the baseline event selection for the classic \mttwo search.
+    \topcaption[Summary table of baseline event selection.]{A summary of the baseline event selection for the classic \mttwo search.
       Events are required to have large \Ht, no leptons, and significant missing energy unlikely to be the product of detector mismeasurement or a single undetected particle.}
     \label{tab:baseline}
   \end{table}
@@ -867,7 +869,7 @@ Taken from \cite{MT2_2019}.}
   All isolation selections are loosened.  
 
   \begin{table}[htbp]
-    \caption[Table of ST and STC selections.]
+    \topcaption[Table of ST and STC selections.]
             {Selection requirements for STs and STCs.
               Some requirements differ for tracks of different lengths; the length categories are described in Section~\ref{sec:distracksbinning}.
               For the subset of medium (M) length tracks that have just four tracking layers with a measurement, the minimum required number of layers of the pixel tracking detector with a measurement is three ($\dagger$).
@@ -877,14 +879,14 @@ Taken from \cite{MT2_2019}.}
               The table also reports the factor by which a selection is relaxed to define STCs, when applicable.
               If no factor is reported, the requirement is not relaxed for the selection of short track candidates.
               \label{tab:shorttrackselection}}
-    \small
+    \footnotesize
     \centering
     \begin{tabular}{l | l | c | c}
       \hline
       Observable                            & Selection         & Track length          & STC factor\\
       \hline
       \pt [GeV]                                            & $> 15$         & All                     & \\
-      $\left|\eta\right|$                                 & $< 2.4$ and not $1.38 < \left|\eta\right| < 1.6$ & All & \\
+      $\left|\eta\right|$                                 & $< 2.4$ \& not $1.38 < \left|\eta\right| < 1.6$ & All & \\
       %  & not $1.38 < \left|\eta\right| < 1.6$           &  & \\
       \hline
       $\sigma(\pt)$ / $\pt^2$ [GeV$^{-1}$]                          & $< 0.2$; $< 0.02$; $< 0.005$           & P; M; L                        & $\times 3$ \\
@@ -989,6 +991,7 @@ Taken from \cite{MT2_2019}.}
   \subsection{Systematics} \label{sec:distrackssysts}
 
   \begin{table}[htb!]
+    \small
     \centering
     \topcaption[Table of uncertainties affecting the disappearing tracks background prediction.]{\label{tab:distracksyst}
       Summary of systematic uncertainties in the disappearing track background prediction, together with their typical size ranges across the search bins.
@@ -1209,3 +1212,8 @@ Taken from \cite{MT2_2019}.}
   In any case, the disappearing tracks signature certainly has not been fully exploited, and will remain an interesting search strategy in future LHC datasets.
 
 
+\section{Acknowledgements}
+
+Many of the figures in this section were produced by co-authors with whom I worked closely over the years, primarily within SNT.
+Bennett Marsh in particular is the primary author of most of the figures and results appearing in Section~\ref{sec:MT2classic}.
+This edition of the analysis would not have been possible without his contributions, or those of other direct co-authors of both this and older editions.
