@@ -10,16 +10,16 @@ Modern elementary particle physics finds itself in a peculiar state.
 Physicists have constructed a theoretical model, now called the Standard Model of Particle Physics (the Standard Model; SM), that is the most quantitatively accurate scientific model of any kind, consistent with experiment in almost every laboratory test, even when experimental uncertainty is smaller than a part per ten billion \cite{electronmu_exp,electronmu_th}, with its most famously accurate prediction displayed in Table~\ref{tab:electronmu}.
 \begin{table}
 \centering
+\topcaption[Comparison of theoretical prediction and experimental measurement of the electron magnetic moment.]
+        {A comparison of the leading experimental measurement of the electron's magnetic moment \cite{electronmu_exp}, and the Standard Model's theoretical prediction \cite{electronmu_th}, in terms of the classical prediction, the Bohr magneton. 
+          Famously, this is the most accurate verification of theory by experiment in all of science. 
+          The numbers in parentheses are the uncertainties, on the same order as the last digits printed.}
 \begin{tabular}{r l}
 \multicolumn{2}{c}{$\mu_e$} \\
 \hline
 Experiment & 2.00231930436 (56) \\
 Theory & 2.002319304363 (15)
 \end{tabular}
-\topcaption[Comparison of theoretical prediction and experimental measurement of the electron magnetic moment.]
-        {A comparison of the leading experimental measurement of the electron's magnetic moment \cite{electronmu_exp}, and the Standard Model's theoretical prediction \cite{electronmu_th}, in terms of the classical prediction, the Bohr magneton. 
-          Famously, this is the most accurate verification of theory by experiment in all of science. 
-          The numbers in parentheses are the uncertainties, on the same order as the last digits printed.}
 \label{tab:electronmu}
 \end{table}
 
@@ -50,6 +50,8 @@ Modern particle physicists hope to find experimental clues by testing the Standa
 
   \begin{table}
     \centering
+    \topcaption[Table of Standard Model bosons.]
+            {The Standard Model bosons, their masses, and associated interactions. Note that there are eight gluons, but they are not experimentally distinct.}
     \begin{tabular}{r r l}
       Boson             & Mass (GeV) \cite{pdg} & Interaction \\
       \hline
@@ -59,8 +61,6 @@ Modern particle physicists hope to find experimental clues by testing the Standa
       Z                 & 91.1876 $\pm$ 0.0021  & Weak (neutral current) \\
       Higgs (h)         & 125.18 $\pm$ 0.16     & Weak (symmetry breaking and mass) \\
     \end{tabular}
-    \topcaption[Table of Standard Model bosons.]
-            {The Standard Model bosons, their masses, and associated interactions. Note that there are eight gluons, but they are not experimentally distinct.}
             \label{tab:bosons}
   \end{table}
 
@@ -87,6 +87,13 @@ Modern particle physicists hope to find experimental clues by testing the Standa
   \renewcommand{\arraystretch}{1.2}
   \begin{table}
     \centering
+    \topcaption[Table of Standard Model fermions.]
+    {A table of the Standard Model fermions, first the quarks then the leptons.
+      The vastly different experimental character of quarks due to their confinement by the strong interactions make their masses much more difficult to measure than those of the charged leptons.
+      Note that every Standard Model fermion also has an antiparticle, with identical properties except for opposite charge.
+      (*) The charge and mass eigenstates of (by convention) down-type quarks are different, so that for example ``the mass of the down quark'' does not exist. Otherwise, decays across generations would be impossible. In practice, they are so nearly equal that the mass of the down quark is equated with that of the lightest mass eigenstate, etc.
+      ($\dagger$) The Standard Model predicts that neutrinos are massless but they experimentally have nonzero masses, albeit one million times smaller than the electron's (see Section~\ref{sec:SMproblems}).
+}
     \begin{tabular}{l c r r}
       Fermion             & Symbol & Mass (GeV) \cite{pdg} & Electric charge \\
       \hline
@@ -102,13 +109,6 @@ Modern particle physicists hope to find experimental clues by testing the Standa
       Tau                 & $\tau$    & $1.77686$(12)  & $-1$ \\
       Neutrinos           & $\nu_{e}$, $\nu_{\mu}$, $\nu_{\tau}$ & 0$^{\dagger}$ & 0 \\
     \end{tabular}
-    \topcaption[Table of Standard Model fermions.]
-    {A table of the Standard Model fermions, first the quarks then the leptons.
-      The vastly different experimental character of quarks due to their confinement by the strong interactions make their masses much more difficult to measure than those of the charged leptons.
-      Note that every Standard Model fermion also has an antiparticle, with identical properties except for opposite charge.
-      (*) The charge and mass eigenstates of (by convention) down-type quarks are different, so that for example ``the mass of the down quark'' does not exist. Otherwise, decays across generations would be impossible. In practice, they are so nearly equal that the mass of the down quark is equated with that of the lightest mass eigenstate, etc.
-      ($\dagger$) The Standard Model predicts that neutrinos are massless but they experimentally have nonzero masses, albeit one million times smaller than the electron's (see Section~\ref{sec:SMproblems}).
-}
             \label{tab:fermions}
   \end{table}
   \renewcommand{\arraystretch}{1}
